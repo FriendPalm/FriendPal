@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>FriendPal - Email</title>
+  <title>FriendPal - SMS</title>
   <!-- CSS -->
   <link rel="stylesheet" href="css/style.css">
   <!--Import Google Icon Font-->
@@ -21,19 +21,41 @@
     <ul id="nav-mobile" class="left">
       <li><a href="talk.html"><i class="material-icons blue-text">navigate_before</i></a></li>
     </ul>
+    <ul class="right">
+      <li>Hello, JonDoe</li>
+    </ul>
   </div>
 </nav>
 
 <div class="container">
+
+  <ul class="collection">
+    <li class="collection-item dismissable"><div>Alvin<span class="new badge"></span><a href="#!" class="secondary-content"></a></div></li>
+    <li class="collection-item dismissable"><div>Alvin<span class="new badge"></span><a href="#!" class="secondary-content"></a></div></li>
+    <li class="collection-item dismissable"><div>Alvin<span class="new badge"></span><a href="#!" class="secondary-content"></a></div></li>
+    <li class="collection-item dismissable"><div>Alvin<span class="new badge"></span><a href="#!" class="secondary-content"></a></div></li>
+  </ul>
   <div class="row">
-    <div class="card">
-      hi
+    <div class="col">
+      <!-- Dropdown Trigger -->
+      <a class='dropdown-button btn blue' href='#' data-activates='dropdown1'>Send to:</a>
+      <!-- Dropdown Structure -->
+      <ul id='dropdown1' class='dropdown-content'>
+        <li><a href="#!">contact 1</a></li>
+        <li><a href="#!">contact 2</a></li>
+        <li><a href="#!">contact 3</a></li>
+      </ul>
     </div>
   </div>
   <div class="row">
-    <div class="card col s6">hi</div>
-    <div class="card col s6">hi</div>
+    <div class="input-field col s12">
+      <textarea id="message" class="materialize-textarea"></textarea>
+      <label for="message">Message</label>
+    </div>
+  </div>
 
+  <div class="row">
+    <div class="btn right blue">Send</div>
   </div>
 </div>
 
