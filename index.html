@@ -11,45 +11,6 @@
   <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection"/>
   <!--Let browser know website is optimized for mobile-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <!-- chart loader -->
-  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-  <script>
-    google.charts.load('current', {packages: ['corechart', 'bar']});
-    google.charts.setOnLoadCallback(drawBasic);
-
-    function drawBasic() {
-
-      var data = google.visualization.arrayToDataTable([
-        ['', '', {role: 'annotation'}],
-        ['Online Users', 35, 35],
-        ['Total Users', 1000, 1000]
-      ]);
-
-      var options = {
-        title: '',
-        chartArea: {width: '100%'},
-        hAxis: {
-          title: 'number of users',
-          minValue: 0
-        },
-        vAxis: {
-          title: ''
-        }
-      };
-
-      var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
-
-      chart.draw(data, options);
-    }
-  </script>
-
-  <!-- Credit Info Chart code -->
-  <script type="text/javascript">
-    google.charts.load("current", {packages: ["corechart"]});
-    google.charts.setOnLoadCallback(drawChart);
-    function drawChart() {
-    }
-  </script>
 
 
 </head>
@@ -64,8 +25,10 @@
 </nav>
 <div class="container">
   <div class="row">
-    <div class="card">
-      <div id="chart_div"></div>
+    <div class="col s12">
+      <div class="card">
+        <p>Penpal communication tool</p>
+      </div>
     </div>
   </div>
   <div class="row">
