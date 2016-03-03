@@ -1,12 +1,13 @@
-<template name="ListStuff">
+<template name="ListMessages">
   {{#IfLoggedIn}}
     <div class="well">
 
       <table class="table">
         <thead>
         <tr>
-          <th>Name</th>
-          <th>Quantity</th>
+          <th>to</th>
+          <th>from</th>
+          <th>text</th>
           <th>Edit</th>
         </tr>
         </thead>
@@ -14,9 +15,10 @@
         <tbody>
         {{#each stuffList}}
           <tr>
-            <td>{{name}}</td>
-            <td>{{quantity}}</td>
-            <td><a href="{{pathFor 'EditStuff'}}">Edit</a></td>
+            <td>{{to}}</td>
+            <td>{{from}}</td>
+            <td>{{text}}</td>
+            <td><a href="{{pathFor 'EditMessage'}}">Edit</a></td>
           </tr>
         {{/each}}
         </tbody>

@@ -1,9 +1,9 @@
-Template.ListStuff.helpers({
+Template.ListMessages.helpers({
 
   /**
    * @returns {*} All of the Stuff documents.
    */
-  stuffList: function () {
-    return Stuff.find();
+  messageList: function () {
+    return Messages.find();
   }
 });
