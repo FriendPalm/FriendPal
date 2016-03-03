@@ -37,10 +37,20 @@ if (Meteor.isServer) {
  * See: https://github.com/aldeed/meteor-autoform#affieldinput
  */
 Messages.attachSchema(new SimpleSchema({
+  subject: {
+    label: "subject",
+    type: String,
+    optional: true,
+    max: 20,
+    autoform: {
+      group: messages,
+      placeholder: "Bicycle"
+    }
+  },
   text: {
     label: "text",
     type: String,
-    optional: false,
+    optional: true,
     max: 20,
     autoform: {
       group: messages,
@@ -48,7 +58,7 @@ Messages.attachSchema(new SimpleSchema({
     }
   },
   sender: {
-    label: "to",
+    label: "from",
     type: String,
     optional: false,
     max: 20,
@@ -58,22 +68,13 @@ Messages.attachSchema(new SimpleSchema({
     }
   },
   receiver: {
-    label: "text",
+    label: "to",
     type: String,
     optional: false,
     max: 20,
     autoform: {
       group: messages,
       placeholder: "to"
-    }
-  },
-  quantity: {
-    label: "Quantity",
-    type: Number,
-    optional: false,
-    autoform: {
-      group: messages,
-      placeholder: "3"
     }
   }
 }));

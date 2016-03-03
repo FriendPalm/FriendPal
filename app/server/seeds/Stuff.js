@@ -3,8 +3,8 @@
  * @type {*[]}
  */
 var messSeeds = [
-  {text: "Basket", sender: "user1", receiver: "user2", quantity: 3},
-  {text: "Bicycle", sender: "user2", receiver: "user1", quantity: 2}
+  {subject: "sub1", text: "Basket", sender: "user1", receiver: "user2"},
+  {subject: "sub2", text: "Bicycle", sender: "user2", receiver: "user1"}
 ];
 
 /**
