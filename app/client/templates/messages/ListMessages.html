@@ -7,18 +7,19 @@
         <tr>
           <th>to</th>
           <th>from</th>
+          <th>subject</th>
           <th>text</th>
-          <th>Edit</th>
         </tr>
         </thead>
 
         <tbody>
-        {{#each stuffList}}
+        {{#each messageList}}
           <tr>
-            <td>{{to}}</td>
-            <td>{{from}}</td>
+            <td>{{receiver}}</td>
+            <td>{{sender}}</td>
+            <td>{{subject}}</td>
             <td>{{text}}</td>
-            <td><a href="{{pathFor 'EditMessage'}}">Edit</a></td>
+            <td><a href="#" class="remove">Delete</a></td>
           </tr>
         {{/each}}
         </tbody>

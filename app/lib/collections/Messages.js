@@ -20,6 +20,13 @@ Meteor.methods({
   editMessage: function(doc, docID) {
     check(doc, Messages.simpleSchema());
     Messages.update({_id: docID}, doc);
+  },
+  /**
+   *
+   * deletes the active message
+   */
+  deleteMessage: function(docID){
+      Messages.remove(docID);
   }
 });
 
@@ -40,21 +47,24 @@ Messages.attachSchema(new SimpleSchema({
   subject: {
     label: "subject",
     type: String,
-    optional: true,
+    optional: false,
     max: 20,
     autoform: {
       group: messages,
-      placeholder: "Bicycle"
+      placeholder: "subject"
     }
   },
   text: {
     label: "text",
     type: String,
-    optional: true,
+    optional: false,
     max: 20,
     autoform: {
       group: messages,
-      placeholder: "Bicycle"
+      placeholder: "text",
+      afFieldInput: {
+        type: "textarea"
+      }
     }
   },
   sender: {
@@ -75,6 +85,18 @@ Messages.attachSchema(new SimpleSchema({
     autoform: {
       group: messages,
       placeholder: "to"
+    }
+  },
+  sms: {
+    label: "sms",
+    type: String,
+    optional: false,
+    autoform: {
+      group: messages,
+      placeholder: "sms",
+      afFieldInput: {
+        type: "boolean-checkbox"
+      }
     }
   }
 }));
