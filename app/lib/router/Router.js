@@ -22,6 +22,10 @@ Router.route('/add', {
   name: 'AddMessage'
 });
 
+Router.route('/learn', {
+  name: 'Learn'
+});
+
 
 Router.route('/stuff/:_id', {
   name: 'EditMessage',
