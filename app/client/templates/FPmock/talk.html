@@ -1,49 +1,23 @@
-<template name="Talk">
-<div class="container blue-text">
-  <div class="row">
-    <div class="col s12">
-      <div class="card">
-        <div class="row">
-          <h3 class="center col s4">12<br>Online Users</h3>
-          <h3 class="center col s4">Speaking<br>3 Languages</h3>
-          <h3 class="center col s4">456<br>Total Users</h3>
-        </div>
+<template name="Messenger">
+  <div class="container blue-text">
+    <div class="row">
+      <div class="col s1 m1 l1">
+        <a href="{{ pathFor 'Learn' }}">
+          <div class=" side-bar blue card">
+            hi
+          </div>
+        </a>
       </div>
+   <div class="col s11 m11 l11">
+     <div class="row">
+      {{> Banner}}
     </div>
+
+
+    <div class="row">
+      {{> SMS}}
+      {{> Email}}
+    </div>
+   </div></div>
   </div>
-  <div class="row">
-    <div class="col s6">
-      <a href="sms.html">
-        <div class="card"><h1 class="center">SMS</h1></div>
-      </a>
-    </div>
-    <div class="col s6">
-      <a href="email.html">
-        <div class="card"><h1 class="center"><span class="new badge yellow black-text">4</span>Email</h1></div>
-      </a>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col s3">
-      <a href="managecontacts.html">
-        <div class="card"><h3 class="center">Contacts</h3></div>
-      </a>
-    </div>
-    <div class="col s3">
-      <a href="settings.html">
-        <div class="card"><h3 class="center">Settings</h3></div>
-      </a>
-    </div>
-    <div class="col s3">
-      <a href="contact.html">
-        <div class="card"><h3 class="center">Report</h3></div>
-      </a>
-    </div>
-    <div class="col s3">
-      <a href="exit.html">
-        <div class="card"><h3 class="center">Exit</h3></div>
-      </a>
-    </div>
-  </div>
-</div>
 </template>

@@ -1,144 +1,35 @@
 <template name="Learn">
-<div class="container">
-
-  <div class="row">
-    <div class="col s12">
-      <ul class="tabs">
-        <li class="tab col s2"><a href="#en">To English</a></li>
-        <li class="tab col s2"><a href="#sp">To Spanish</a></li>
-        <li class="tab col s2"><a href="#jp">To Japanese</a></li>
-        <li class="tab col s2"><a href="#l4">To Language 4</a></li>
-      </ul>
-
-      <div id="en" class="col s12">
-
-        <div class="card">
-          <div class="card-content">
-            <div class="row">
-              <form class="col s12">
-                <div class="row">
-                  <div class="input-field col s12">
-                    <textarea id="textarea1" class="materialize-textarea"></textarea>
-                    <label for="textarea1">Textarea</label>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="btn right blue activator">Translate</div>
-                </div>
-              </form>
-            </div>
+  <div class="container">
+    <div class="row">
+      <div class="col s11 m11 l11">
+        <div class="row">
+          {{> Banner}}
+        </div>
+        <div class="row">
+          <div class="col s6">
+            <a href="phrases.html">
+              <div class="card">
+                <h1 class="center">Usefull/Common Phrases</h1>
+              </div>
+            </a>
           </div>
-          <div class="card-reveal">
-            <span class="card-title grey-text text-darken-4">Translated Text<i
-                class="material-icons right">close</i></span>
 
-            <p>Traslated text translated text translated text translated text translated text translated text translated
-              text translated text translated text translated text translated text translated text translated text</p>
+          <div class="col s6">
+            <a href="classes.html">
+              <div class="card">
+                <h1 class="center">Classes</h1>
+              </div>
+            </a>
           </div>
         </div>
       </div>
-      <div id="sp" class="col s12">
-
-        <div class="card">
-          <div class="card-content">
-            <div class="row">
-              <form class="col s12">
-                <div class="row">
-                  <div class="input-field col s12">
-                    <textarea id="textarea1" class="materialize-textarea"></textarea>
-                    <label for="textarea1">Textarea</label>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="btn right blue activator">Translate</div>
-                </div>
-              </form>
-            </div>
+      <div class="col s1 m1 l1">
+        <a href="{{ pathFor 'Messenger' }}">
+          <div class="side-bar blue card">
+            hi
           </div>
-          <div class="card-reveal">
-            <span class="card-title grey-text text-darken-4">Translated Text<i
-                class="material-icons right">close</i></span>
-
-            <p>Traslated text translated text translated text translated text translated text translated text translated
-              text translated text translated text translated text translated text translated text translated text</p>
-          </div>
-        </div>
-      </div>
-
-      <div id="jp" class="col s12">
-
-        <div class="card">
-          <div class="card-content">
-            <div class="row">
-              <form class="col s12">
-                <div class="row">
-                  <div class="input-field col s12">
-                    <textarea id="textarea1" class="materialize-textarea"></textarea>
-                    <label for="textarea1">Textarea</label>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="btn right blue activator">Translate</div>
-                </div>
-              </form>
-            </div>
-          </div>
-          <div class="card-reveal">
-            <span class="card-title grey-text text-darken-4">Translated Text<i
-                class="material-icons right">close</i></span>
-
-            <p>Traslated text translated text translated text translated text translated text translated text translated
-              text translated text translated text translated text translated text translated text translated text</p>
-          </div>
-        </div>
-      </div>
-
-      <div id="l4" class="col s12">
-
-        <div class="card">
-          <div class="card-content">
-            <div class="row">
-              <form class="col s12">
-                <div class="row">
-                  <div class="input-field col s12">
-                    <textarea id="textarea1" class="materialize-textarea"></textarea>
-                    <label for="textarea1">Textarea</label>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="btn right blue activator">Translate</div>
-                </div>
-              </form>
-            </div>
-          </div>
-          <div class="card-reveal">
-            <span class="card-title grey-text text-darken-4">Translated Text<i
-                class="material-icons right">close</i></span>
-
-            <p>Traslated text translated text translated text translated text translated text translated text translated
-              text translated text translated text translated text translated text translated text translated text</p>
-          </div>
-        </div>
+        </a>
       </div>
     </div>
   </div>
-
-  <div class="row">
-    <div class="col s6">
-      <a href="phrases.html">
-        <div class="card">
-          <h1 class="center">Usefull/Common Phrases</h1>
-        </div>
-      </a>
-    </div>
-
-    <div class="col s6">
-      <a href="classes.html">
-        <div class="card">
-          <h1 class="center">Classes</h1>
-        </div>
-      </a>
-    </div>
-  </div>
-</div>
 </template>

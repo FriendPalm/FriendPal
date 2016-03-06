@@ -1,3 +1,7 @@
 body {
   padding-top: 70px;  /* Move body of page below navbar. */
 }
+.side-bar{
+  height: 100%;
+  box-shadow: #1a237e;
+}
