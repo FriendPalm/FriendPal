@@ -58,7 +58,6 @@ Messages.attachSchema(new SimpleSchema({
     label: "text",
     type: String,
     optional: false,
-    max: 160,
     autoform: {
       group: messages,
       placeholder: "text",
@@ -88,14 +87,22 @@ Messages.attachSchema(new SimpleSchema({
     }
   },
   sms: {
-    label: "sms",
     type: String,
-    optional: false,
+    optional: true,
     autoform: {
       group: messages,
-      placeholder: "sms",
       afFieldInput: {
-        type: "boolean-checkbox"
+        hidden: true,
+      }
+    }
+  },
+  read: {
+    type: String,
+    optional: true,
+    autoform: {
+      group: messages,
+      afFieldInput: {
+        hidden: true,
       }
     }
   }
