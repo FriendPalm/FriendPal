@@ -47,8 +47,8 @@ Messages.attachSchema(new SimpleSchema({
   subject: {
     label: "subject",
     type: String,
-    optional: false,
-    max: 20,
+    optional: true,
+    max: 100,
     autoform: {
       group: messages,
       placeholder: "subject"
@@ -58,7 +58,7 @@ Messages.attachSchema(new SimpleSchema({
     label: "text",
     type: String,
     optional: false,
-    max: 20,
+    max: 160,
     autoform: {
       group: messages,
       placeholder: "text",
@@ -71,7 +71,7 @@ Messages.attachSchema(new SimpleSchema({
     label: "from",
     type: String,
     optional: false,
-    max: 20,
+    max: 100,
     autoform: {
       group: messages,
       placeholder: "from"
@@ -81,7 +81,7 @@ Messages.attachSchema(new SimpleSchema({
     label: "to",
     type: String,
     optional: false,
-    max: 20,
+    max: 100,
     autoform: {
       group: messages,
       placeholder: "to"

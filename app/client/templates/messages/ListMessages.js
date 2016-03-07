@@ -1,7 +1,7 @@
 Template.ListMessages.helpers({
 
   /**
-   * @returns {*} All of the Stuff documents.
+   * @returns {*} All of the Message documents.
    */
   messageList: function () {
     return Messages.find();

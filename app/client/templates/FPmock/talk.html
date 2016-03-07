@@ -1,23 +1,23 @@
 <template name="Messenger">
-  <div class="container blue-text">
-    <div class="row">
-      <div class="col s1 m1 l1">
-        <a href="{{ pathFor 'Learn' }}">
-          <div class=" side-bar blue card">
-            hi
-          </div>
-        </a>
+  <div class="row">
+
+    <div class="col s1 m1 l1">
+      <a href="{{ pathFor 'Learn' }}">
+        <div class=" side-bar blue card">
+          <div>hi</div>
+        </div>
+      </a>
+    </div>
+
+    <div class="col s11 m11 l11">
+      <div class="row">
+        <div class="card">Unread SMS and Email Messages</div>
       </div>
-   <div class="col s11 m11 l11">
-     <div class="row">
-      {{> Banner}}
+      <div class="row">
+        <div class="card">{{> SMS}}</div>
+        {{> Email}}
+      </div>
     </div>
 
-
-    <div class="row">
-      {{> SMS}}
-      {{> Email}}
-    </div>
-   </div></div>
   </div>
 </template>

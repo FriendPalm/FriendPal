@@ -1,14 +1,17 @@
 <template name="SMS">
-<div class="container">
+  {{#IfLoggedIn}}
   <div class="row">
-    <div class="card">
-      hi
+
+    <!-- code courtesy of Austin Keeley https://github.com/austinkeeley -->
+    <p>To: <input id="to" type="text" value="" /></p>
+    <div style="border: 1px solid; padding: 10px; overflow-y: scroll; height: 550px">
+      {{#each messageList}}<pre>{{sender}}({{subject}}): {{text}} <a href="#" class="remove">Delete</a></pre>{{/each}}
     </div>
-  </div>
-  <div class="row">
-    <div class="card col s6">hi</div>
-    <div class="card col s6">hi</div>
+    <form>
+      <p>Message:<input id="chatInput" /><input type="submit" value="Say it" /></p>
+    </form>
 
   </div>
-</div>
+
+  {{/IfLoggedIn}}
 </template>
