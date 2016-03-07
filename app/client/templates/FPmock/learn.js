@@ -13,9 +13,8 @@ Template.Learn.events = {
     tmpl.find("#translated").value = message;
 
     //Meteor.call("translateMessage", message);
-  },
-  'click .remove': function () {
-    Meteor.call("deleteMessage", this._id);
+    //if has translated text->print;
+    //else query google, store->print
   }
 };
 

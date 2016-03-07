@@ -1,16 +1,23 @@
-//code courtesy of Austin Keeley https://github.com/austinkeeley
-
 Template.SMS.events = {
+  /**code courtesy of Austin Keeley https://github.com/austinkeeley
+   * submit button click event, takes the message and stores it in messages
+   * @param e click event
+   * @param tmpl the page
+   */
   'submit': function (e, tmpl) {
     e.preventDefault();
-    console.log("Clicked submit!");
+    var messageRece = tmpl.find("#to").value;
+    var messageText = tmpl.find("#chatInput").value;
+    var messageSubj = tmpl.find("#subject").value;
+    var messageSend = "testuser"
+    var messageSMS  = "true"
 
     var newMessage = {
-      sender: "user",
-      receiver: tmpl.find("#to").value,
-      text: tmpl.find("#chatInput").value,
-      subject: "foo",
-      sms: "true"
+      sender: messageSend,
+      receiver: messageRece,
+      text: messageText,
+      subject: messageSubj,
+      sms: messageSMS
     };
 
     // clear out the old message
