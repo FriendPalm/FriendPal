@@ -28,7 +28,18 @@ Template.SMS.events = {
   },
   'click .remove': function () {
     Meteor.call("deleteMessage", this._id);
-  }
+  },
+  'click .learn': function (e, tmpl) {
+  e.preventDefault();
+
+  //save form data
+  var saveTraslate = tmpl.find("#to").value;
+  var saveTraslated = tmpl.find("#chatInput").value;
+  var saveTraslated = tmpl.find("#subject").value;
+
+  Router.go('Learn');
+    //load learn field values
+}
 };
 
 Template.SMS.helpers({
