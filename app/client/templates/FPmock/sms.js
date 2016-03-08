@@ -33,13 +33,18 @@ Template.SMS.events = {
   e.preventDefault();
 
   //save form data
-  var saveTraslate = tmpl.find("#to").value;
-  var saveTraslated = tmpl.find("#chatInput").value;
-  var saveTraslated = tmpl.find("#subject").value;
+  saveTo = tmpl.find("#to").value;
+  saveChat = tmpl.find("#chatInput").value;
+  saveSub = tmpl.find("#subject").value;
 
   Router.go('Learn');
     //load learn field values
-}
+
+     tmpl.find("#translate").value = saveTraslate;
+  tmpl.find("#translated").value  = saveTraslated;
+
+
+  }
 };
 
 Template.SMS.helpers({

@@ -1,4 +1,7 @@
 messages = "Messages";  // avoid typos, this string occurs many times.
+//globals
+
+var saveTraslate,saveTraslated,saveTo,saveChat,saveSub;
 
 Messages = new Mongo.Collection(messages);
 
