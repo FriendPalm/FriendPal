@@ -22,16 +22,16 @@ Template.Learn.events = {
     var sTraslated = tmpl.find("#translated").value;
 
     //save form data
-    UserFormData.upsert({name: "saveTraslat"}, {value: sTraslate});
-    UserFormData.upsert({name: "saveTraslated"}, {value: sTraslated});
+    UserFormData.upsert({name: "saveTraslate"}, {name: "saveTraslate", value: sTraslate});
+    UserFormData.upsert({name: "saveTraslated"}, {name: "saveTraslate", value: sTraslated});
     console.log(UserFormData.find({name: "saveTranslate"}));
-
+console.log(UserFormData.find({name:"saveChat"}));
     Router.go('Messenger');
 
     //load messenger field values
-    tmpl.find("#chatInput").value = Session.get('saveChat');
-    tmpl.find("#to").value = Session.get('saveTo');
-    tmpl.find("#subject").value = Session.get('saveSub');
+    tmpl.find("#chatInput").value = UserFormData.find({name:"saveChat"});
+    tmpl.find("#to").value =        UserFormData.find({name:"saveTo"});
+    tmpl.find("#subject").value =   UserFormData.find({name:"saveSub"});
 
   }
 };
