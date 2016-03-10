@@ -20,16 +20,15 @@ Template.Learn.events = {
     e.preventDefault();
 
     //save form data
-    saveTraslate = tmpl.find("#translate").value;
-    saveTraslated = tmpl.find("#translated").value;
-console.log(saveTraslate);
+    Session.set({saveTraslate: tmpl.find("#translate").value, saveTraslated: tmpl.find("#translated").value});
+
 
     Router.go('Messenger');
     //load messenger field values
+    tmpl.find("#chatInput").value = Session.get("saveChat");
+    tmpl.find("#to").value = Session.get("saveTo");
+    tmpl.find("#subject").value = Session.get("saveSub");
 
-    tmpl.find("#chatInput").value = saveChat;
-    tmpl.find("#to").value = saveTo;
-    tmpl.find("#subject").value = saveSub;
   }
 };
 

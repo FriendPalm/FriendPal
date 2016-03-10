@@ -1,5 +1,5 @@
 Template.SMS.events = {
-  /**code courtesy of Austin Keeley https://github.com/austinkeeley
+  /**submit function stolen from: Austin Keeley https://github.com/austinkeeley
    * submit button click event, takes the message and stores it in messages
    * @param e click event
    * @param tmpl the page
@@ -9,8 +9,8 @@ Template.SMS.events = {
     var messageRece = tmpl.find("#to").value;
     var messageText = tmpl.find("#chatInput").value;
     var messageSubj = tmpl.find("#subject").value;
-    var messageSend = "testuser"
-    var messageSMS  = "true"
+    var messageSend = "testuser";
+    var messageSMS = "true";
 
     var newMessage = {
       sender: messageSend,
@@ -30,19 +30,17 @@ Template.SMS.events = {
     Meteor.call("deleteMessage", this._id);
   },
   'click .learn': function (e, tmpl) {
-  e.preventDefault();
+    e.preventDefault();
 
-  //save form data
-  saveTo = tmpl.find("#to").value;
-  saveChat = tmpl.find("#chatInput").value;
-  saveSub = tmpl.find("#subject").value;
+    //save form data
+    Session.set({saveTo: tmpl.find("#to").value, saveChat: tmpl.find("#chatInput").value,
+    saveSub: tmpl.find("#subject").value});
+console.log(Session.get("saveChat"));
+    Router.go('Learn');
 
-  Router.go('Learn');
     //load learn field values
-
-     tmpl.find("#translate").value = saveTraslate;
-  tmpl.find("#translated").value  = saveTraslated;
-
+    tmpl.find("#translate").value = Session.get("saveTraslate");
+    tmpl.find("#translated").value = Session.get("saveTraslated");
 
   }
 };
