@@ -28,18 +28,15 @@ Template.SMS.events = {
   },
   'click .remove': function () {
     Meteor.call("deleteMessage", this._id);
-  },
+  }
+  /*,
   'click .learn': function (e, tmpl) {
     e.preventDefault();
-
-    console.log(UserFormData.find({name: "saveTranslate"}));
-    console.log(UserFormData.find({name:"saveChat"}));
 
     var sTo = tmpl.find("#to").value;
     var sChat = tmpl.find("#chatInput").value;
     var sSub = tmpl.find("#subject").value;
 
-    console.log(UserFormData.findOne({name:"saveChat"}));
     //save form data
 
     UserFormData.upsert({name: "saveTo"}, {name: "saveTo", value: sTo});
@@ -52,6 +49,7 @@ Template.SMS.events = {
     tmpl.find("#translated").value = UserFormData.find({name:"saveTraslated"});
 
   }
+  */
 };
 
 Template.SMS.helpers({

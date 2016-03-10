@@ -6,15 +6,16 @@ Template.Learn.events = {
   'click .submit': function (e, tmpl) {
     e.preventDefault();
 
-    var message = tmpl.find("#translate").value;
+    var message = tmpl.find('#translate').value;
 
     // clear out the old message
-    tmpl.find("#translated").value = message;
+    tmpl.find('#translated').value = message;
 
     //Meteor.call("translateMessage", message);
     //if has translated text->print;
     //else query google, store->print
-  },
+  }
+  /*,
   'click .talk': function (e, tmpl) {
     e.preventDefault();
 
@@ -24,8 +25,7 @@ Template.Learn.events = {
     //save form data
     UserFormData.upsert({name: "saveTraslate"}, {name: "saveTraslate", value: sTraslate});
     UserFormData.upsert({name: "saveTraslated"}, {name: "saveTraslate", value: sTraslated});
-    console.log(UserFormData.find({name: "saveTranslate"}));
-console.log(UserFormData.find({name:"saveChat"}));
+
     Router.go('Messenger');
 
     //load messenger field values
@@ -34,6 +34,7 @@ console.log(UserFormData.find({name:"saveChat"}));
     tmpl.find("#subject").value =   UserFormData.find({name:"saveSub"});
 
   }
+  */
 };
 
 Template.Learn.helpers({
