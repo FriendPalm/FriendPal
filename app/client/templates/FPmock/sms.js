@@ -32,15 +32,17 @@ Template.SMS.events = {
   'click .learn': function (e, tmpl) {
     e.preventDefault();
 
+    var testsave =  Session.get('saveTraslate');
+    console.log(testsave);
     //save form data
-    Session.set({saveTo: tmpl.find("#to").value, saveChat: tmpl.find("#chatInput").value,
-    saveSub: tmpl.find("#subject").value});
-console.log(Session.get("saveChat"));
+    Session.set('saveTo', tmpl.find("#to").value);
+    Session.set('saveChat', tmpl.find("#chatInput").value);
+    Session.set('saveSub', tmpl.find("#subject").value);
     Router.go('Learn');
 
     //load learn field values
-    tmpl.find("#translate").value = Session.get("saveTraslate");
-    tmpl.find("#translated").value = Session.get("saveTraslated");
+    tmpl.find("#translate").value = Session.get('saveTraslate');
+    tmpl.find("#translated").value = Session.get('saveTraslated');
 
   }
 };

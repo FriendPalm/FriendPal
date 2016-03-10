@@ -5,7 +5,6 @@
 Template.Learn.events = {
   'click .submit': function (e, tmpl) {
     e.preventDefault();
-    console.log("Clicked submit!");
 
     var message = tmpl.find("#translate").value;
 
@@ -19,15 +18,20 @@ Template.Learn.events = {
   'click .talk': function (e, tmpl) {
     e.preventDefault();
 
-    //save form data
-    Session.set({saveTraslate: tmpl.find("#translate").value, saveTraslated: tmpl.find("#translated").value});
+    var sTraslate = tmpl.find("#translate").value;
+    var sTraslated = tmpl.find("#translated").value;
 
+    //save form data
+    UserFormData.upsert({name: "saveTraslat"}, {value: sTraslate});
+    UserFormData.upsert({name: "saveTraslated"}, {value: sTraslated});
+    console.log(UserFormData.find({name: "saveTranslate"}));
 
     Router.go('Messenger');
+
     //load messenger field values
-    tmpl.find("#chatInput").value = Session.get("saveChat");
-    tmpl.find("#to").value = Session.get("saveTo");
-    tmpl.find("#subject").value = Session.get("saveSub");
+    tmpl.find("#chatInput").value = Session.get('saveChat');
+    tmpl.find("#to").value = Session.get('saveTo');
+    tmpl.find("#subject").value = Session.get('saveSub');
 
   }
 };
