@@ -1,13 +1,55 @@
-<template name="SMS">
+<template name="Messenger">
   {{#IfLoggedIn}}
-    <!-- code courtesy of Austin Keeley https://github.com/austinkeeley -->
-    <p>To: <input id="to" type="text" value="" />subject:<input id="subject" type="text" value="" /></p>
-    <div style=" overflow-y: scroll; height: 250px">
-      {{#each messageList}}<pre>{{sender}}({{subject}}): {{text}} <a href="#" class="remove">Delete</a> @{{receiver}}
-    </pre>{{/each}}
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+        rel="stylesheet">
+  <div class="row">
+
+    <div class="col s1 m1 l1">
+      <a href="{{ pathFor 'Learn' }}" class="learn">
+        <div class=" side-bar blue card">
+          <div style="height: 500px;"><i class="material-icons">g_translate</i></div>
+        </div>
+      </a>
     </div>
-    <form>
-      <p>Message:<input id="chatInput" /><input type="submit" value="Say it" class="btn" /></p>
-    </form>
+
+    <div class="col s11 m11 l11">
+      <div class="row">
+        <div class="card">Unread SMS and Email Messages</div>
+      </div>
+      <div class="row">
+        <div class="card">
+          <!-- code courtesy of Austin Keeley https://github.com/austinkeeley -->
+          <p>To: <input id="to" type="text" value=""/>subject:<input id="subject" type="text" value=""/></p>
+          <div style=" overflow-y: scroll; height: 250px">
+            {{#each messageList}}<pre>{{sender}}({{subject}}): {{text}} <a href="#" class="remove">Delete</a> @{{receiver}}
+    </pre>
+            {{/each}}
+          </div>
+          <form>
+            <p>Message:<input id="chatInput"/><input type="submit" value="Say it" class="btn"/></p>
+          </form>
+
+        </div>
+        <div class="row">
+          <div class="card">
+            Email specific stuff
+          </div>
+        </div>
+        <div class="row">
+          <div class="card col s6">foo</div>
+          <div class="card col s6">bar</div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
   {{/IfLoggedIn}}
+  <script>
+    $(document).ready(function () {
+      //load messenger field values
+      document.getElementById("subject").value = "pre-filled subject";
+      console.log(document.cookie);
+    });
+  </script>
 </template>

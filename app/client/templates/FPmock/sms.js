@@ -1,4 +1,4 @@
-Template.SMS.events = {
+Template.Messenger.events = {
   /**submit function stolen from: Austin Keeley https://github.com/austinkeeley
    * submit button click event, takes the message and stores it in messages
    * @param e click event
@@ -22,38 +22,35 @@ Template.SMS.events = {
 
     // clear out the old message
     tmpl.find("#chatInput").value = "";
-    tmpl.find("#to").value = "";
 
     Meteor.call("addMessage", newMessage);
   },
   'click .remove': function () {
     Meteor.call("deleteMessage", this._id);
-  }
-  /*,
+  },
   'click .learn': function (e, tmpl) {
     e.preventDefault();
 
-    var sTo = tmpl.find("#to").value;
-    var sChat = tmpl.find("#chatInput").value;
-    var sSub = tmpl.find("#subject").value;
-
     //save form data
-
-    UserFormData.upsert({name: "saveTo"}, {name: "saveTo", value: sTo});
-    UserFormData.upsert({name: "saveChat"}, {name:"saveChat", value: sChat});
-    UserFormData.upsert({name: "saveSub"}, {name:"saveSub", value: sSub});
+    cvalueChat = tmpl.find("#chatInput").value;
+    cvalueTo = tmpl.find("#to").value;
+    cvalueSubject = tmpl.find("#subject").value;
+    if (document.cookie) {
+      document.cookie += "chatField=" + cvalueChat + "; ";
+      document.cookie += "toField=" + cvalueTo + "; ";
+      document.cookie += "subjectField=" + cvalueSubject + "; ";
+    } else {
+      document.cookie = "chatField=" + cvalueChat + "; ";
+      document.cookie += "toField=" + cvalueTo + "; ";
+      document.cookie += "subjectField=" + cvalueSubject + "; ";
+    }
+    console.log(document.cookie);
     Router.go('Learn');
-
-    //load learn field values
-    tmpl.find("#translate").value = UserFormData.find({name:"saveTraslate"});
-    tmpl.find("#translated").value = UserFormData.find({name:"saveTraslated"});
-
+    //loading done in learn.html
   }
-  */
 };
 
-Template.SMS.helpers({
-
+Template.Messenger.helpers({
   /**
    * @returns {*} All of the Message documents.
    */
