@@ -27,6 +27,15 @@ Router.route('/learn', {
 Router.route('/messenger', {
   name: 'Messenger'
 });
+Router.route('/settings', {
+  name: 'Settings'
+});
+Router.route('/profile', {
+  name: 'Profile'
+});
+Router.route('/contacts', {
+  name: 'ManageContacts'
+});
 
 
 Router.route('/messages/:_id', {
