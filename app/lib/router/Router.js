@@ -29,7 +29,7 @@ Router.route('/messenger', {
 });
 
 
-Router.route('/stuff/:_id', {
-  name: 'EditMessage',
+Router.route('/messages/:_id', {
+  name: 'ReadMessage',
   data: function() { return Messages.findOne(this.params._id); }
 });

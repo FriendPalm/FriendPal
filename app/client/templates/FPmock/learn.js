@@ -17,19 +17,12 @@ Template.Learn.events = {
   },
   'click .talk': function (e, tmpl) {
     e.preventDefault();
-
     //save form data
     cvalueTranslate = tmpl.find("#translate").value;
     cvalueTranslated = tmpl.find("#translated").value;
-    if(document.cookie){
-      document.cookie += "translateField=" + cvalueTranslate + "; ";
-      document.cookie += "translatedField=" + cvalueTranslated + "; ";
-    }else{
-      document.cookie = "translateField=" + cvalueTranslate + "; ";
-      document.cookie += "translatedField=" + cvalueTranslated + "; ";
+    document.cookie = "translateField=" + cvalueTranslate + "; ";
+    document.cookie = "translatedField=" + cvalueTranslated + "; ";
 
-    }
-    console.log(document.cookie);
     Router.go('Messenger');
     //load done in sms.html
   }
