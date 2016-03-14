@@ -10,7 +10,7 @@ Template.Messenger.events = {
     var messageText = tmpl.find("#chatInput").value;
     var messageSubj = tmpl.find("#subject").value;
     var messageSend = Meteor.user().profile.name;
-    if (messageText.length > 500) {
+    if (messageText.length > 500) {// <--------------------------USER SETTINGS OPTION
       var messageSMS = "true";
     } else {
       var messageSMS = "false";
