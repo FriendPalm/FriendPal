@@ -27,6 +27,9 @@ Meteor.methods({
    */
   deleteMessage: function(docID){
       Messages.remove(docID);
+  },
+  markRead: function(docID){
+    Messages.update(docID, {$set: {read: true}});
   }
 });
 
@@ -79,14 +82,14 @@ Messages.attachSchema(new SimpleSchema({
   receiver: {
     label: "to",
     type: String,
-    optional: false,
+    optional: true,
     max: 100,
     autoform: {
       group: messages,
       placeholder: "to"
     }
   },
-  sms: {
+  letter: {
     type: String,
     optional: true,
     autoform: {

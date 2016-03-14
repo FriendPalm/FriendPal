@@ -20,7 +20,7 @@ Template.Messenger.events = {
       receiver: messageRece,
       text: messageText,
       subject: messageSubj,
-      sms: messageSMS
+      letter: messageSMS
     };
 
     // clear out the old message
@@ -45,25 +45,58 @@ Template.Messenger.events = {
 
     Router.go('Learn');
     //loading done in learn.html
+  },
+
+  'click .letter': function (e) {
+    //mark letter as read
+    Meteor.call("markRead", this._id);
   }
 };
 
 Template.Messenger.helpers({
   /**
-   * @returns {*} All of the Message documents.
+   * @returns {*} non letters that have been sent of received by the current user.
    */
   messageList: function () {
     return Messages.find({
-      $or: [
-        {receiver: Meteor.user().profile.name},
-        {sender: Meteor.user().profile.name}
+      $and: [
+        {
+          $or: [
+            {letter: "false"},
+            {letter: null}
+          ]
+        },
+        {
+          $or: [
+            {receiver: Meteor.user().profile.name},
+            {sender: Meteor.user().profile.name}
+          ]
+        }]
+    })
+  },
+  generalMessages: function () {
+    return Messages.find(
+      {
+        $or: [
+          {receiver: "general"},
+          {receiver: ""},
+          {receiver: null}]
+      });
+  },
+  newMessages: function () {
+    return Messages.find({
+      $and: [
+        {read: null},
+        {receiver: Meteor.user().profile.name}
       ]
     });
   },
-  generalMessages: function () {
-    return Messages.find({receiver: "general"});
-  },
-  newMessages: function () {
-    return Messages.find({});
+  allLetters: function () {
+    return Messages.find({
+      $and: [
+        {letter: "true"},
+        {sender: Meteor.user().profile.name}
+      ]
+    });
   }
 });

@@ -1,9 +1,7 @@
 <template name="ReadMessage">
-  {{#IfLoggedIn}}
     <div class="well">
-      from: {{sender}}<br>
-  {{text}}
+      from:    {{sender}}<br>
+      message: {{text}}<br>
     </div>
-  {{/IfLoggedIn}}
   <a href="{{pathFor 'Messenger'}}">back</a>
 </template>

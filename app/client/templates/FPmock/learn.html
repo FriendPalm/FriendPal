@@ -27,8 +27,13 @@
     </div>
   </div>
   <script>
-    /* function stolen from W3Schools http://www.w3schools.com/js/js_cookies.asp */
+
     $(document).ready(function () {
+      /* function stolen from W3Schools http://www.w3schools.com/js/js_cookies.asp
+       * finds a particular value of the given key in the cookies list
+       * param: cname key name
+       * return: value of the given key
+       * */
       function getCookie(cname) {
         var name = cname + "=";
         var ca = document.cookie.split(';');

@@ -14,13 +14,17 @@
 
     <div class="col s11 m11 l11">
       <div class="row">
-        <div class="card">Unread SMS and Email Messages</div>
-        {{#each newMessages}}<div
-        class="col s2 m2 l2"><pre><a href="{{pathFor 'ReadMessage'}}">{{subject}}</a><br>{{sender}}</pre></div>{{/each}}
+        <div class="card">Unread Messages</div>
+        {{#each newMessages}}
+        <div
+          class="col s2 m2 l2">
+          <pre><a href="{{ pathFor 'ReadMessage' }}" class="letter">{{sender}}: {{subject}}</a></pre>
+        </div>
+        {{/each}}
       </div>
       <div class="row">
+        <!-- code courtesy of Austin Keeley https://github.com/austinkeeley -->
         <div class="card">
-          <!-- code courtesy of Austin Keeley https://github.com/austinkeeley -->
           <div class="col s6 m6 l6">
             <h5>personal</h5>
             <div style=" overflow-y: scroll; height: 250px">
@@ -32,33 +36,44 @@
           <div class="col s6 m6 l6">
             <h5>general</h5>
             <div style=" overflow-y: scroll; height: 250px">
-              {{#each generalMessages}}<pre>{{sender}}: {{text}}</pre>
+              {{#each generalMessages}}
+              <pre>{{sender}}: {{text}}</pre>
               {{/each}}
             </div>
           </div>
           <form>
-            <p>To: <input id="to" type="text" value=""/>subject:<input id="subject" type="text" value=""/></p>
-            <p>Message:<input id="chatInput"/><input type="submit" value="Send" class="btn"/></p>
+            <div class="col s6 m6 l6">To: <input id="to" type="text" value=""/></div>
+            <div class="col s6 m6 l6">subject:<input id="subject" type="text" value=""/></div>
+            <div class="col s12 m12 l12"> Message:<input id="chatInput"/><input type="submit" value="Send" class="btn"/></div>
           </form>
 
         </div>
       </div>
       <div class="row">
         <div class="card">
-          Email specific stuff
+          Letters
         </div>
       </div>
       <div class="row">
-        <div class="card col s6">foo</div>
-        <div class="card col s6">bar</div>
+        <div class="col s6">
+          {{#each allLetters}}
+          <pre>{{sender}}: {{text}} <a href="#" class="remove">delete</a></pre>
+          {{/each}}
+        </div>
+        <div class="col s6">bar</div>
 
       </div>
     </div>
   </div>
   {{/IfLoggedIn}}
   <script>
-    /* function stolen from W3Schools http://www.w3schools.com/js/js_cookies.asp */
+
     $(document).ready(function () {
+      /* function stolen from W3Schools http://www.w3schools.com/js/js_cookies.asp
+       * finds a particular value of the given key in the cookies list
+       * param: cname key name
+       * return: value of the given key
+       */
       function getCookie(cname) {
         var name = cname + "=";
         var ca = document.cookie.split(';');
