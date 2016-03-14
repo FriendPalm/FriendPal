@@ -95,8 +95,11 @@ Template.Messenger.helpers({
     return Messages.find({
       $and: [
         {letter: "true"},
-        {sender: Meteor.user().profile.name}
+        {receiver: Meteor.user().profile.name}
       ]
     });
+  },
+  sentLetters: function(){
+
   }
 });

@@ -7,7 +7,7 @@ Meteor.methods({
    * Invoked by AutoForm to add a new Stuff record.
    * @param doc The Stuff document.
    */
-  addMessage: function(doc) {
+  addMessage: function (doc) {
     check(doc, Messages.simpleSchema());
     Messages.insert(doc);
   },
@@ -17,26 +17,45 @@ Meteor.methods({
    * @param doc The Stuff document.
    * @param docID It's ID.
    */
-  editMessage: function(doc, docID) {
+  editMessage: function (doc, docID) {
     check(doc, Messages.simpleSchema());
     Messages.update({_id: docID}, doc);
   },
   /**
-   *
-   * deletes the active message
+   * markes the deleted field of the active message
+   * @param docId _id of the active item
    */
-  deleteMessage: function(docID){
-      Messages.remove(docID);
+  deleteMessage: function (docID) {
+    Messages.update(docID, {
+      $set: {
+        deleted: "true"
+      }
+    });
   },
-  markRead: function(docID){
-    Messages.update(docID, {$set: {read: true}});
+  /**
+   * marks the active document as read
+   * @param docID _id of the active item
+   */
+  markRead: function (docID) {
+    Messages.update(docID, {
+      $set: {
+        read: "true"
+      }
+    });
   }
 });
 
 // Publish the entire Collection.  Subscription performed in the router.
 if (Meteor.isServer) {
   Meteor.publish(messages, function () {
-    return Messages.find();
+    return Messages.find(
+      //this is where you restrict access.
+      {
+        $or: [
+          {deleted: null},
+          {deleted: "false"}]
+      }
+    );
   });
 }
 
@@ -100,6 +119,16 @@ Messages.attachSchema(new SimpleSchema({
     }
   },
   read: {
+    type: String,
+    optional: true,
+    autoform: {
+      group: messages,
+      afFieldInput: {
+        hidden: true,
+      }
+    }
+  },
+  deleted: {
     type: String,
     optional: true,
     autoform: {
