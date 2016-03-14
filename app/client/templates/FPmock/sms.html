@@ -41,13 +41,24 @@
               {{/each}}
             </div>
           </div>
-          <form>
-            <div class="col s6 m6 l6">To: <input id="to" type="text" value=""/></div>
-            <div class="col s6 m6 l6">subject:<input id="subject" type="text" value=""/></div>
-            <div class="col s12 m12 l12"> Message:<input id="chatInput"/><input type="submit" value="Send" class="btn"/></div>
-          </form>
-
         </div>
+      </div>
+      <div class="row">
+        <ul class="collapsible popout" data-collapsible="accordion">
+          <li>
+            <div class="collapsible-header">Compose Message</div>
+            <div class="collapsible-body">
+<pre>
+              <div class="col s6 m6 l6">To: <input id="to" type="text" value=""/></div>
+              <div class="col s6 m6 l6">Subject:<input id="subject" type="text" value=""/></div>
+              <div class="col s12 m12 l12"> Message:<input id="chatInput"/><input type="submit" value="Send"
+                                                                                  class="btn"/>
+              </div></pre>
+
+            </div>
+          </li>
+        </ul>
+
       </div>
       <div class="row">
         <div class="card">
@@ -84,6 +95,13 @@
         }
         return "";
       }
+
+      //init cellapsible
+      $(document).ready(function(){
+        $('.collapsible').collapsible({
+          accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
+        });
+      });
 
       //load messenger field values
       document.getElementById("to").value = getCookie("toField");
