@@ -100,6 +100,14 @@ Template.Messenger.helpers({
     });
   },
   sentLetters: function(){
+    return Messages.find({
+      $and: [
+        {letter: "true"},
+        {sender: Meteor.user().profile.name}
+      ]
+    });
+  },
+  allMessages: function(){
 
   }
 });
