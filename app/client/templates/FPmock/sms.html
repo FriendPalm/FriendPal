@@ -14,7 +14,7 @@
 
     <div class="col s11 m11 l11">
       <div class="row">
-        <ul class="collapsible">
+        <ul class="collapsible popout" data-collapsible="accordion">
           <li>
             <div class="collapsible-header">Unread Letters
               <span class="new badge">{{newMessages.count}}</span>
@@ -61,11 +61,25 @@
             <div class="collapsible-header">Compose Message</div>
             <div class="collapsible-body">
               <form>
-                <div class="col s5 m5 l5">To: <input id="to" type="text" value=""/></div>
-                <div class="col s5 m5 l5">Subject:<input id="subject" type="text" value=""/></div>
-                <div class="col s10 m10 l10"> Message:<input id="chatInput"/>
+                <!-- Dropdown Trigger -->
+                <a class='dropdown-button btn' href='#' data-activates='dropdown1'>  To: <input id="to" type="text" value=""/></a>
+
+                <!-- Dropdown Structure -->
+                <ul id='dropdown1' class='dropdown-content'>
+                  {{#each contactList}}
+                  <li><a href="#!">{{name}}</a></li>
+
+                  {{/each}}
+                  <li><a id="general" href="#!" class="toDropdown">General</a></li>
+                  <li class="divider"></li>
+                  {{#each recentList}}
+                  <li><a href="#!">{{name}}</a></li>
+                  {{/each}}
+
+                </ul>
+Subject:<input id="subject" type="text" value=""/>
+                 Message:<input id="chatInput"/>
                   <div class="btn submit">Send</div>
-                </div>
               </form>
 
             </div>
@@ -80,10 +94,13 @@
       </div>
       <div class="row">
         {{#each allLetters}}
-        <div
-          class="card col s3 m2 l1"><a href="{{ pathFor 'ReadMessage' }}" class="letter">{{sender}}:
+        <div class="col s3 m2 l1">
+       <div class="card">
+
+         <a href="{{ pathFor 'ReadMessage' }}" class="letter">{{sender}}:
           {{subject}}</a>
         </div>
+       </div>
         {{/each}}
       </div>
     </div>
@@ -92,6 +109,16 @@
 
   <script>
     $(document).ready(function () {
+      $('.dropdown-button').dropdown({
+          inDuration: 300,
+          outDuration: 225,
+          constrain_width: false, // Does not change width of dropdown to that of the activator
+          hover: true, // Activate on hover
+          gutter: 0, // Spacing from edge
+          belowOrigin: false, // Displays dropdown below the button
+          alignment: 'left' // Displays dropdown with edge aligned to the left of button
+        }
+      );
       /* function stolen from W3Schools http://www.w3schools.com/js/js_cookies.asp
        * finds a particular value of the given key in the cookies list
        * param: cname key name

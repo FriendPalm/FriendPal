@@ -38,7 +38,10 @@ if (Meteor.isServer) {
     return Meteor.users.find({},{fields: {'username': 1, 'contacts': 1}});
   });
 }
-
+if(Meteor.isClient){
+  // client
+  Meteor.subscribe("userData");
+}
 Meteor.methods({
   //start User setting manage
   updateProfile: function (newProfile) {
@@ -55,10 +58,10 @@ Meteor.methods({
       }
     })
   },
-  addContact: function (newContactID, newContact) {
+  addContact: function (newContact) {
     Meteor.update(Meteor.user()._id, {
       $push: {
-        contacts: {_id: newContactID ,name: newContact}
+        contacts: {name: newContact}
       }
     })
   },

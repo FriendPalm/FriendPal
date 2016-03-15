@@ -54,6 +54,14 @@ console.log(moment().format("YYYYMMDDhmmss"));
 
     Router.go('Learn');
     //loading done in learn.html
+  },
+  /**
+   * set to field to equal the id of the selected dropdown item
+   * @param e event
+   * @param tmpl page markup
+   */
+  'click .toDropdown': function(e, tmpl){
+    tmpl.find("#to").value = e.currentTarget.id;
   }
 };
 
@@ -111,5 +119,11 @@ Template.Messenger.helpers({
         {sender: Meteor.user().username}
       ]
     });
+  },
+  /**
+   * @returns {*} all user accounts.
+   */
+  contactList: function () {
+    return (Meteor.users.find());
   }
 });
