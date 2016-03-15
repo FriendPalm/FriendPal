@@ -45,28 +45,28 @@ if(Meteor.isClient){
 Meteor.methods({
   //start User setting manage
   updateProfile: function (newProfile) {
-    Meteor.update(Meteor.user()._id, {
+    Meteor.users.update(Meteor.user()._id, {
       $set: {
         profile: newProfile
       }
     })
   },
-  updateContacts: function (updatedContacts) {
-    Meteor.update(Meteor.user()._id, {
+  updateContacts: function (updatedContactsArray) {
+    Meteor.users.update(Meteor.user()._id, {
       $set: {
-        contacts: updatedContacts
+        contacts: updatedContactsArray
       }
     })
   },
   addContact: function (newContact) {
-    Meteor.update(Meteor.user()._id, {
+    Meteor.users.update(Meteor.user()._id, {
       $push: {
-        contacts: {name: newContact}
+        contacts: newContact
       }
     })
   },
   deleteContact: function (contactName) {
-    Meteor.update(Meteor.user()._id, {
+    Meteor.users.update(Meteor.user()._id, {
       $pull: {
         contacts: contactName
       }
