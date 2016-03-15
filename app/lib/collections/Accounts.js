@@ -1,6 +1,6 @@
 /**
  * Created by symor on 3/14/2016.
-sample data set
+ sample data set
  {
   _id: "bbca5d6a-2156-41c4-89da-0329e8c99a4f",  // Meteor.userId()
   username: "cool_kid_13", // unique name
@@ -32,33 +32,39 @@ sample data set
   }
 }
  */
-Meteor.methods({
 
+if (Meteor.isServer) {
+  Meteor.publish("userData", function () {
+    return Meteor.users.find({},{fields: {'username': 1, 'contacts': 1}});
+  });
+}
+
+Meteor.methods({
   //start User setting manage
-  updateProfile: function(newProfile){
+  updateProfile: function (newProfile) {
     Meteor.update(Meteor.user()._id, {
-      $set:{
+      $set: {
         profile: newProfile
       }
     })
   },
-  updateContacts: function(updatedContacts){
+  updateContacts: function (updatedContacts) {
     Meteor.update(Meteor.user()._id, {
-      $set:{
+      $set: {
         contacts: updatedContacts
       }
     })
   },
-  addContact: function(newContact){
+  addContact: function (newContactID, newContact) {
     Meteor.update(Meteor.user()._id, {
-      $push:{
-        contacts: newContact
+      $push: {
+        contacts: {_id: newContactID ,name: newContact}
       }
     })
   },
-  deleteContact: function(contactName){
+  deleteContact: function (contactName) {
     Meteor.update(Meteor.user()._id, {
-      $pull:{
+      $pull: {
         contacts: contactName
       }
     })
