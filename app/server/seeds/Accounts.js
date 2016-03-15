@@ -4,6 +4,9 @@ Accounts.validateNewUser(function (user) {
     var username = user.services.cas.id;
     if (username && _.contains(Meteor.settings.allowed_users, username)) {
       return true;
+    }else{
+      Meteor.settings.allowed_users.push(username);
+      return true;
     }
   }
   throw new Meteor.Error(403, "User not in the allowed list");

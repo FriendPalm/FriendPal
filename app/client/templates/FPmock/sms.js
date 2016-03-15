@@ -11,17 +11,19 @@ Template.Messenger.events = {
     var messageText = tmpl.find("#chatInput").value;
     var messageSubj = tmpl.find("#subject").value;
     var messageSend = Meteor.user().profile.name;
-    if (messageText.length > 500) {// <--------------------------USER SETTINGS OPTION
-      var messageSMS = "true";
+    if (messageText.length > 160) {
+      var messageLetter = "true";
     } else {
-      var messageSMS = "false";
+      var messageLetter = "false";
     }
     var newMessage = {
       sender: messageSend,
       receiver: messageRece,
       text: messageText,
       subject: messageSubj,
-      letter: messageSMS
+      letter: messageLetter,
+
+      created: moment().format("YYYYMMDD")
     };
 
     // clear out the old message
@@ -31,6 +33,12 @@ Template.Messenger.events = {
   },
   'click .remove': function () {
     Meteor.call("deleteMessage", this._id);
+  },
+  /**
+   * calls the function to mark the message as read
+   */
+  'click .dismiss': function () {
+    Meteor.call("markRead", this._id);
   },
   'click .learn': function (e, tmpl) {
     e.preventDefault();
@@ -46,11 +54,6 @@ Template.Messenger.events = {
 
     Router.go('Learn');
     //loading done in learn.html
-  },
-
-  'click .letter': function (e) {
-    //mark letter as read
-    Meteor.call("markRead", this._id);
   }
 };
 
@@ -60,20 +63,20 @@ Template.Messenger.helpers({
    */
   messageList: function () {
     return Messages.find({
-      $and: [
-        {
-          $or: [
-            {letter: "false"},
-            {letter: null}
-          ]
-        },
+      $and: [{
+        $or: [
+          {letter: "false"},
+          {letter: null}
+        ]
+      },
         {
           $or: [
             {receiver: Meteor.user().profile.name},
             {sender: Meteor.user().profile.name}
           ]
-        }]
-    })
+        }
+      ]
+    }, {sort:{created: 1}})
   },
   generalMessages: function () {
     return Messages.find(
@@ -88,7 +91,8 @@ Template.Messenger.helpers({
     return Messages.find({
       $and: [
         {read: null},
-        {receiver: Meteor.user().profile.name}
+        {receiver: Meteor.user().profile.name},
+        {letter: "true"}
       ]
     });
   },
@@ -100,15 +104,12 @@ Template.Messenger.helpers({
       ]
     });
   },
-  sentLetters: function(){
+  sentLetters: function () {
     return Messages.find({
       $and: [
         {letter: "true"},
-        {sender: Meteor.user().profile.name}
+        {sender: Meteor.user().username}
       ]
     });
-  },
-  allMessages: function(){
-
   }
 });

@@ -28,7 +28,8 @@ Meteor.methods({
   deleteMessage: function (docID) {
     Messages.update(docID, {
       $set: {
-        deleted: "true"
+        deleted: "true",
+        deletedDate: moment().format("YYYYMMDD")
       }
     });
   },
@@ -39,7 +40,8 @@ Meteor.methods({
   markRead: function (docID) {
     Messages.update(docID, {
       $set: {
-        read: "true"
+        read: "true",
+        readDate: moment().format("YYYYMMDD")
       }
     });
   }
@@ -129,6 +131,36 @@ Messages.attachSchema(new SimpleSchema({
     }
   },
   deleted: {
+    type: String,
+    optional: true,
+    autoform: {
+      group: messages,
+      afFieldInput: {
+        hidden: true,
+      }
+    }
+    },
+  readDate: {
+    type: String,
+    optional: true,
+    autoform: {
+      group: messages,
+      afFieldInput: {
+        hidden: true,
+      }
+    }
+  },
+  deletedDate: {
+    type: String,
+    optional: true,
+    autoform: {
+      group: messages,
+      afFieldInput: {
+        hidden: true,
+      }
+    }
+   },
+  created: {
     type: String,
     optional: true,
     autoform: {

@@ -16,12 +16,134 @@
           <input id="translated" type="textArea" value=""/>
         </div>
       </div>
+      <div class="col s12">
+        <ul class="tabs">
+          {{#each userLanguages}}
+          <li class="tab"><a href="#en">To {{language}}</a></li>
+          {{/each}}
 
+          <li class="tab"><a href="#sp">To Spanish</a></li>
+          <li class="tab"><a href="#jp">To Japanese</a></li>
+          <li class="tab"><a href="#l4">To Language 4</a></li>
+
+        </ul>
+
+        <div id="en" class="col s12">
+
+          <div class="card z-depth-0">
+            <div class="card-content">
+              <div class="row">
+                <form class="col s12">
+                  <div class="row">
+                    <div class="input-field col s12">
+                      <textarea id="textarea1" class="materialize-textarea"></textarea>
+                      <label for="textarea1">Textarea</label>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="btn right blue activator"><i class="large material-icons">translate</i></div>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div class="card-reveal">
+            <span class="card-title grey-text text-darken-4">Translated Text<i
+              class="material-icons right">close</i></span>
+
+              <p>Traslated text translated text translated text translated text translated text translated text
+                translated
+                text translated text translated text translated text translated text translated text translated text</p>
+            </div>
+          </div>
+        </div>
+        <div id="sp" class="col s12">
+
+          <div class="card z-depth-0">
+            <div class="card-content">
+              <div class="row">
+                <form class="col s12">
+                  <div class="row">
+                    <div class="input-field col s12">
+                      <textarea id="textarea2" class="materialize-textarea"></textarea>
+                      <label for="textarea2">Textarea</label>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="btn right blue activator"><i class="large material-icons">translate</i></div>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div class="card-reveal">
+            <span class="card-title grey-text text-darken-4">Translated Text<i
+              class="material-icons right">close</i></span>
+
+              <p>Texto traducido Texto traducido Texto traducido Texto traducido Texto traducido Texto traducido</p>
+            </div>
+          </div>
+        </div>
+
+        <div id="jp" class="col s12">
+
+          <div class="card z-depth-0">
+            <div class="card-content">
+              <div class="row">
+                <form class="col s12">
+                  <div class="row">
+                    <div class="input-field col s12">
+                      <textarea id="textarea3" class="materialize-textarea"></textarea>
+                      <label for="textarea3">Textarea</label>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="btn right blue activator"><i class="large material-icons">translate</i></div>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div class="card-reveal">
+            <span class="card-title grey-text text-darken-4">Translated Text<i
+              class="material-icons right">close</i></span>
+
+              <p>translated japanese</p>
+            </div>
+          </div>
+        </div>
+
+        <div id="l4" class="col s12">
+
+          <div class="card z-depth-0">
+            <div class="card-content">
+              <div class="row">
+                <form class="col s12">
+                  <div class="row">
+                    <div class="input-field col s12">
+                      <textarea id="textarea4" class="materialize-textarea"></textarea>
+                      <label for="textarea4">Textarea</label>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="btn right blue activator"><i class="large material-icons">translate</i></div>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div class="card-reveal">
+            <span class="card-title grey-text text-darken-4">Translated Text<i
+              class="material-icons right">close</i></span>
+
+              <p>Traslated text translated text translated text translated text translated text translated text
+                translated
+                text translated text translated text translated text translated text translated text translated text</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <div class="col s1 m1 l1">
       <a href="{{ pathFor 'Messenger' }}" class="talk">
         <div class="side-bar blue card">
-          <div style="height: 500px;"><i class="material-icons">question_answer</i></div>
+          <div style="height: 1500px;"><i class="material-icons">question_answer</i></div>
         </div>
       </a>
     </div>
@@ -29,6 +151,7 @@
   <script>
 
     $(document).ready(function () {
+      $('ul.tabs').tabs();
       /* function stolen from W3Schools http://www.w3schools.com/js/js_cookies.asp
        * finds a particular value of the given key in the cookies list
        * param: cname key name
