@@ -4,8 +4,9 @@ Template.Messenger.events = {
    * @param e click event
    * @param tmpl the page
    */
-  'submit': function (e, tmpl) {
+  'click .submit': function (e, tmpl) {
     e.preventDefault();
+    //console.log("clicked");
     var messageRece = tmpl.find("#to").value;
     var messageText = tmpl.find("#chatInput").value;
     var messageSubj = tmpl.find("#subject").value;

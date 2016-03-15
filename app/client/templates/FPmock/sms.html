@@ -14,7 +14,9 @@
 
     <div class="col s11 m11 l11">
       <div class="row">
-        <div class="card">Unread Messages</div>
+        <div class="card">Unread Messages
+          <div class="right">{{newMessages.count}} new</div>
+        </div>
         {{#each newMessages}}
         <div
           class="col s2 m2 l2">
@@ -48,12 +50,12 @@
           <li>
             <div class="collapsible-header">Compose Message</div>
             <div class="collapsible-body">
-<pre>
-              <div class="col s6 m6 l6">To: <input id="to" type="text" value=""/></div>
-              <div class="col s6 m6 l6">Subject:<input id="subject" type="text" value=""/></div>
-              <div class="col s12 m12 l12"> Message:<input id="chatInput"/><input type="submit" value="Send"
-                                                                                  class="btn"/>
-              </div></pre>
+              <form>
+                <div class="col s6 m6 l6">To: <input id="to" type="text" value=""/></div>
+                <div class="col s6 m6 l6">Subject:<input id="subject" type="text" value=""/></div>
+                <div class="col s12 m12 l12"> Message:<input id="chatInput"/><div class="btn submit">Send</div>
+                </div>
+              </form>
 
             </div>
           </li>
@@ -97,9 +99,9 @@
       }
 
       //init cellapsible
-      $(document).ready(function(){
+      $(document).ready(function () {
         $('.collapsible').collapsible({
-          accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
+          accordion: false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
         });
       });
 
