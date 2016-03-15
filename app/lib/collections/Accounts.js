@@ -38,7 +38,9 @@ Meteor.methods({
   updateProfile: function(newProfile){
     Meteor.update(Meteor.user()._id, {
       $set:{
-        profile: newProfile}});
+        profile: newProfile
+      }
+    })
   },
   updateContacts: function(updatedContacts){
     Meteor.update(Meteor.user()._id, {
@@ -48,6 +50,17 @@ Meteor.methods({
     })
   },
   addContact: function(newContact){
-
+    Meteor.update(Meteor.user()._id, {
+      $push:{
+        contacts: newContact
+      }
+    })
+  },
+  deleteContact: function(contactName){
+    Meteor.update(Meteor.user()._id, {
+      $pull:{
+        contacts: contactName
+      }
+    })
   }
 })
