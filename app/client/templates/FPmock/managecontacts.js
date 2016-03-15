@@ -14,6 +14,6 @@ Template.ManageContacts.helpers({
    * @returns {*} all user accounts.
    */
   contactList: function () {
-    return (Meteor.users.find().profile.contacts);
+    return Meteor.users.find({_id: Meteor.user()._id}).fetch()[0].contacts;
   }
 });

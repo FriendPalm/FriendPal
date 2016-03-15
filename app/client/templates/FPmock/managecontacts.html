@@ -3,11 +3,11 @@
 <div class="container">
   <input id="newCon" type="text" value=""/><a href="#!" class="addContact">add contact</a>
   <div class="row">
-    <div class="card">
       {{#each contactList}}
-      name: {{name}}
+      <div class="card">
+      name: {{this}}
+      </div>
       {{/each}}
-    </div>
   </div>
   <div class="row">
     <div class="card col s6">
