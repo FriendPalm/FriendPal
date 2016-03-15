@@ -23,9 +23,9 @@ Template.Messenger.events = {
       subject: messageSubj,
       letter: messageLetter,
 
-      created: moment().format("YYYYMMDD")
+      created: moment().format("YYYYMMDDhmmss")
     };
-
+console.log(moment().format("YYYYMMDDhmmss"));
     // clear out the old message
     tmpl.find("#chatInput").value = "";
 
@@ -62,7 +62,7 @@ Template.Messenger.helpers({
    * @returns {*} non letters that have been sent of received by the current user.
    */
   messageList: function () {
-    return Messages.find({
+    return Messages.find({/*
       $and: [{
         $or: [
           {letter: "false"},
@@ -75,8 +75,8 @@ Template.Messenger.helpers({
             {sender: Meteor.user().profile.name}
           ]
         }
-      ]
-    }, {sort:{created: 1}})
+      ]*/
+    }, {sort:{created: -1}})
   },
   generalMessages: function () {
     return Messages.find(
