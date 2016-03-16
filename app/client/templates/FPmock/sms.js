@@ -147,5 +147,14 @@ Template.Messenger.helpers({
    */
   contactList: function () {
     return Meteor.users.find({_id: Meteor.user()._id}).fetch()[0].contacts;
+  },
+  /**
+   * @returns {*} current user's contact list.
+   */
+  recentList: function () {
+    console.log(_.pluck(Messages.find({$and:[{receiver: Meteor.user().profile.name},{created: {$gt: moment().subtract(1, 'day').format("YYYYMMDDhmmss")}}]}).fetch()), 'sender');
+
+
+    return Messages.find({$and:[{receiver: Meteor.user().profile.name},{created: {$gt: moment().subtract(1, 'day').format("YYYYMMDDhmmss")}}]});
   }
 });
