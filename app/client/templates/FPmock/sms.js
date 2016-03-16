@@ -152,9 +152,8 @@ Template.Messenger.helpers({
    * @returns {*} current user's contact list.
    */
   recentList: function () {
-    console.log(_.pluck(Messages.find({$and:[{receiver: Meteor.user().profile.name},{created: {$gt: moment().subtract(1, 'day').format("YYYYMMDDhmmss")}}]}).fetch()), 'sender');
+    return (_.uniq(_.pluck(Messages.find({$and:[{receiver: Meteor.user().profile.name},{created: {$gt: moment().subtract(1, 'day').format("YYYYMMDDhmmss")}}]}).fetch(), "sender")));
 
 
-    return Messages.find({$and:[{receiver: Meteor.user().profile.name},{created: {$gt: moment().subtract(1, 'day').format("YYYYMMDDhmmss")}}]});
   }
 });
