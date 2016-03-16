@@ -66,11 +66,10 @@
 
                 <!-- Dropdown Structure -->
                 <ul id='dropdown1' class='dropdown-content'>
+                  <li><a id="general" href="#!" class="toDropdown">General</a></li>
                   {{#each contactList}}
                   <li><a id="{{this}}" href="#!" class="toDropdown">{{this}}</a></li>
-
                   {{/each}}
-                  <li><a id="general" href="#!" class="toDropdown">General</a></li>
                   <li class="divider"></li>
                   {{#each recentList}}
                   <li><a id="{{this}}" href="#!" class="toDropdown">{{this}}</a></li>
