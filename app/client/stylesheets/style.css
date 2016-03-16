@@ -6,5 +6,11 @@ body {
   box-shadow: #1a237e;
 }
 #to{
-  visibility: hidden;
+  border-bottom: none;
+}
+.newBadge{
+  border-corner-shape: scoop;
+  border-radius: 2px;
+  width: 30px;
+  height: 10px;
 }

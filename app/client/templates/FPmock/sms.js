@@ -1,6 +1,6 @@
 Template.Messenger.events = {
   /**submit function stolen from: Austin Keeley https://github.com/austinkeeley
-   * submit button click event, takes the message and stores it in messages
+   * submit button click event, takes the message and stores it in messages collection
    * @param e click event
    * @param tmpl the page
    */
@@ -9,7 +9,7 @@ Template.Messenger.events = {
     //console.log("clicked");
     var messageRece = tmpl.find("#to").value;
     var messageText = tmpl.find("#chatInput").value;
-    var messageSubj = tmpl.find("#subject").value;
+    //var messageSubj = tmpl.find("#subject").value;
     var messageSend = Meteor.user().profile.name;
     if (messageText.length > 160) {
       var messageLetter = "true";
@@ -20,17 +20,17 @@ Template.Messenger.events = {
       sender: messageSend,
       receiver: messageRece,
       text: messageText,
-      subject: messageSubj,
+      //subject: messageSubj,
       letter: messageLetter,
-
       created: moment().format("YYYYMMDDhmmss")
     };
-console.log(moment().format("YYYYMMDDhmmss"));
     // clear out the old message
     tmpl.find("#chatInput").value = "";
-
     Meteor.call("addMessage", newMessage);
   },
+  /**
+   * Calls meteor function to mark message as deleted
+   */
   'click .remove': function () {
     Meteor.call("deleteMessage", this._id);
   },
@@ -40,17 +40,23 @@ console.log(moment().format("YYYYMMDDhmmss"));
   'click .dismiss': function () {
     Meteor.call("markRead", this._id);
   },
+
+  /**
+   * sidebar to take user to translate page
+   * @param e
+   * @param tmpl
+   */
   'click .learn': function (e, tmpl) {
     e.preventDefault();
 
     //save form data
     cvalueChat = tmpl.find("#chatInput").value;
     cvalueTo = tmpl.find("#to").value;
-    cvalueSubject = tmpl.find("#subject").value;
+    //cvalueSubject = tmpl.find("#subject").value;
 
     document.cookie = "chatField=" + cvalueChat + "; ";
     document.cookie = "toField=" + cvalueTo + "; ";
-    document.cookie = "subjectField=" + cvalueSubject + "; ";
+    //document.cookie = "subjectField=" + cvalueSubject + "; ";
 
     Router.go('Learn');
     //loading done in learn.html
@@ -60,7 +66,7 @@ console.log(moment().format("YYYYMMDDhmmss"));
    * @param e event
    * @param tmpl page markup
    */
-  'click .toDropdown': function(e, tmpl){
+  'click .toDropdown': function (e, tmpl) {
     tmpl.find("#to").value = e.currentTarget.id;
   }
 };
@@ -70,22 +76,25 @@ Template.Messenger.helpers({
    * @returns {*} non letters that have been sent of received by the current user.
    */
   messageList: function () {
-    return Messages.find({/*
+    return Messages.find({
       $and: [{
         $or: [
           {letter: "false"},
           {letter: null}
         ]
-      },
-        {
-          $or: [
-            {receiver: Meteor.user().profile.name},
-            {sender: Meteor.user().profile.name}
-          ]
-        }
-      ]*/
-    }, {sort:{created: -1}})
+      }, {
+        $or: [
+          {receiver: Meteor.user().profile.name},
+          {sender: Meteor.user().profile.name}
+        ]
+      }, {receiver: {$not: "general"}}
+      ]
+    }, {sort: {created: -1}})
   },
+  /**
+   * messages sent to general or no one
+   * @returns a cursor
+   */
   generalMessages: function () {
     return Messages.find(
       {
@@ -95,6 +104,10 @@ Template.Messenger.helpers({
           {receiver: null}]
       });
   },
+  /**
+   *
+   * @returns long messages that have been received by the current user and not viewed or dismissed
+   */
   newMessages: function () {
     return Messages.find({
       $and: [
@@ -104,7 +117,11 @@ Template.Messenger.helpers({
       ]
     });
   },
-  allLetters: function () {
+  /**
+   *
+   * @returns long messages that have been received by the current user
+   */
+  recLetters: function () {
     return Messages.find({
       $and: [
         {letter: "true"},
@@ -112,6 +129,11 @@ Template.Messenger.helpers({
       ]
     });
   },
+
+  /**
+   *
+   * @returns long messages that have been sent by the current user
+   */
   sentLetters: function () {
     return Messages.find({
       $and: [
@@ -121,7 +143,7 @@ Template.Messenger.helpers({
     });
   },
   /**
-   * @returns {*} all user accounts.
+   * @returns {*} current user's contact list.
    */
   contactList: function () {
     return Meteor.users.find({_id: Meteor.user()._id}).fetch()[0].contacts;
