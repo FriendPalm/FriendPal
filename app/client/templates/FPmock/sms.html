@@ -14,28 +14,46 @@
 
     <div class="col s11 m11 l11">
       <div class="row">
-        <ul class="collapsible" data-collapsible="accordion">
-          <li>
-            <div class="collapsible-header active">Personal Chat</div>
-            <div class="collapsible-body">
-              <div style=" overflow-y: scroll; height: 250px">
-                {{#each messageList}}
-                <pre class="lighten-5">{{sender}}@{{receiver}}: {{text}}</pre>
-                {{/each}}
+        <div class="col s6 m6 l6">
+          <ul class="collapsible" data-collapsible="accordion">
+            <li>
+              <div class="collapsible-header active">Personal Chat</div>
+              <div class="collapsible-body">
+                <div style=" overflow-y: scroll; height: 250px">
+                  {{#each messageList}}
+                  <pre class="lighten-5">{{sender}}@{{receiver}}: {{text}}</pre>
+                  {{/each}}
+                </div>
               </div>
-            </div>
-          </li>
-          <li>
-            <div class="collapsible-header">General Chat</div>
-            <div class="collapsible-body">
-              <div style=" overflow-y: scroll; height: 250px">
-                {{#each generalMessages}}
-                <pre>{{sender}}: {{text}}</pre>
-                {{/each}}
+            </li>
+            <li>
+              <div class="collapsible-header">General Chat</div>
+              <div class="collapsible-body">
+                <div style=" overflow-y: scroll; height: 250px">
+                  {{#each generalMessages}}
+                  <pre>{{sender}}: {{text}}</pre>
+                  {{/each}}
+                </div>
               </div>
-            </div>
-          </li>
-        </ul>
+            </li>
+          </ul>
+        </div>
+        <div class="col s6 m6 l6">
+          <ul class="collapsible" data-collapsible="accordion">
+            {{#each pmList}}
+            <li>
+              <div class="collapsible-header active">individual chat</div>
+              <div class="collapsible-body">
+                <div style=" overflow-y: scroll; height: 250px">
+                  {{#each messageInPMList}}
+                  <pre class="lighten-5">{{sender}}@{{receiver}}: {{text}}</pre>
+                  {{/each}}
+                </div>
+              </div>
+            </li>
+            {{/each}}
+          </ul>
+        </div>
       </div>
       <div class="row">
         <ul class="collapsible popout" data-collapsible="accordion">
