@@ -1,8 +1,9 @@
-![]()
+![](app\public\images\Home.JPG)
 
 ## FriendPal
 FriendPal is a communication application that allows students who do not speak the same language to communicate through letters and short messages by incorporating a translator feature.
-FriendPal is built using [Meteor](https://www.meteor.com/). A [live version]() for demo will be available to view until March 24 2016.
+FriendPal is built using [Meteor](https://www.meteor.com/) and [Materialize CSS](http://materializecss.com/)
+development frameworks.
 
 ## Features
 functional:
@@ -14,11 +15,13 @@ state saving
 in-development:
 state saving,
 user profile,
-user settings
+user settings,
 
 planned:
 matchmaking,
 translator using Google API,
+side-by-side viewing translated/non-translated letters,
+automatically translated messages,
 Rooms for online users,
 emoji
 
@@ -35,7 +38,9 @@ meteor --settings ../config/settings.development.json
 ```
 
 ## Walkthrough
-FriendPal is simple to use.
+FriendPal is simple to use. before logging in, you may only use the translator of the app (which is not functional
+yet). after login, you will have access to the messenger, which allows you to send and receive messages. From the top
+ of the page
 
 ## Credits
 

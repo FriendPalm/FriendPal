@@ -14,36 +14,13 @@
 
     <div class="col s11 m11 l11">
       <div class="row">
-        <ul class="collapsible popout" data-collapsible="accordion">
-          <li>
-            <div class="collapsible-header">Unread Letters
-              <div class="right">
-                {{newMessages.count}} new
-              </div>
-            </div>
-            <div class="collapsible-body">
-              {{#each newMessages}}
-              <div style="margin: 2px;" class="btn">
-                <a style="color: white;" href="{{ pathFor 'ReadMessage' }}" class="dismiss">
-                  {{sender}}: {{subject}}
-                </a>
-                <div class="right"><a href="#" class="right dismiss"><i
-                  class="material-icons">close</i></a>
-                </div>
-              </div>
-              {{/each}}
-            </div>
-          </li>
-        </ul>
-      </div>
-      <div class="row">
         <ul class="collapsible" data-collapsible="accordion">
           <li>
             <div class="collapsible-header active">Personal Chat</div>
             <div class="collapsible-body">
               <div style=" overflow-y: scroll; height: 250px">
                 {{#each messageList}}
-                <pre class="lighten-5">{{sender}}: {{text}}</pre>
+                <pre class="lighten-5">{{sender}}@{{receiver}}: {{text}}</pre>
                 {{/each}}
               </div>
             </div>
@@ -94,16 +71,42 @@
         </ul>
 
       </div>
+
       <div class="row">
         <ul class="collapsible popout" data-collapsible="accordion">
+          <li>
+            <div class="collapsible-header">Unread Letters
+              <div class="right">
+                {{newMessages.count}} new
+              </div>
+            </div>
+            <div class="collapsible-body">
+              {{#each newMessages}}
+              <div style="margin: 2px;" class="card">
+                <a href="{{ pathFor 'ReadMessage' }}" class="dismiss">
+                  {{sender}}:
+                  <div class="truncate">{{text}}</div>
+                </a>
+                <div class="right"><a href="#" class="right dismiss"><i
+                  class="material-icons">close</i></a>
+                </div>
+              </div>
+              {{/each}}
+            </div>
+          </li>
           <li>
             <div class="collapsible-header">
               Past Letters
             </div>
             <div class="collapsible-body">
-              {{#each recLetters}} <a style="margin: 2px;" href="{{ pathFor 'ReadMessage' }}"
-                                      class="btn letter">{{sender}}:
-              {{subject}}</a>
+              {{#each recLetters}}
+              <div style="margin: 2px;" class="card">
+                <a href="{{ pathFor 'ReadMessage' }}"
+                   class="letter">{{sender}}:
+                  <div class="truncate">{{text}}</div>
+                </a>
+
+              </div>
               {{/each}}
             </div>
           </li>
