@@ -11,6 +11,9 @@ Template.ManageContacts.events = {
   'click .deleteContact': function(e, tmpl){
     var conName = e.target.previousSibling.data;
     Meteor.call("deleteContact", conName)
+  },
+  'click .editCon': function(){
+
   }
 }
 Template.ManageContacts.helpers({

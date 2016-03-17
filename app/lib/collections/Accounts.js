@@ -35,7 +35,7 @@
 
 if (Meteor.isServer) {
   Meteor.publish("userData", function () {
-    return Meteor.users.find({},{fields: {'username': 1, 'contacts': 1}});
+    return Meteor.users.find({_id: Meteor.user()._id},{fields: {'contacts': 1, 'settings': 1}});
   });
 }
 if(Meteor.isClient){
@@ -51,13 +51,6 @@ Meteor.methods({
       }
     })
   },
-  updateContacts: function (updatedContactsArray) {
-    Meteor.users.update(Meteor.user()._id, {
-      $set: {
-        contacts: updatedContactsArray
-      }
-    })
-  },
   addContact: function (newContact) {
     Meteor.users.update(Meteor.user()._id, {
       $push: {
@@ -65,11 +58,17 @@ Meteor.methods({
       }
     })
   },
-  deleteContact: function (contactName) {
+  deleteContact: function (contactId) {
     Meteor.users.update(Meteor.user()._id, {
       $pull: {
         contacts: contactName
       }
     })
+  },
+  getCon: function(){
+
+  },
+  setSettings: function(){
+
   }
 })
