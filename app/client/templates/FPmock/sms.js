@@ -74,7 +74,9 @@ Template.Messenger.events = {
 
 Template.Messenger.helpers({
   pmList:function(){
-    console.log(_.groupBy(Messages.find({receiver: Meteor.user().profile.name}).fetch(), 'sender'));
+    //console.log(_.map(_.groupBy(Messages.find({receiver: Meteor.user().profile.name}).fetch(), 'sender')), function(key, val){return{'name': key, 'messages': val};});
+  var groupedMess = (_.groupBy(Messages.find({$or:[{receiver: Meteor.user().profile.name},{sender: Meteor.user().profile.name}]}).fetch(), 'sender'));
+    return (_.map(groupedMess, function(val, key){return {'name': key, 'messages': val}}));
   },
   /**
    * @returns {*} non letters that have been sent of received by the current user.

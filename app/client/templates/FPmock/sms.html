@@ -42,12 +42,14 @@
           <ul class="collapsible" data-collapsible="accordion">
             {{#each pmList}}
             <li>
-              <div class="collapsible-header active">individual chat</div>
+              <div class="collapsible-header active">{{name}}</div>
               <div class="collapsible-body">
                 <div style=" overflow-y: scroll; height: 250px">
-                  {{#each messageInPMList}}
+
+                  {{#each messages}}
                   <pre class="lighten-5">{{sender}}@{{receiver}}: {{text}}</pre>
                   {{/each}}
+
                 </div>
               </div>
             </li>
