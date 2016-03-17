@@ -73,6 +73,9 @@ Template.Messenger.events = {
 };
 
 Template.Messenger.helpers({
+  pmList:function(){
+    console.log(_.groupBy(Messages.find({receiver: Meteor.user().profile.name}).fetch(), 'sender'));
+  },
   /**
    * @returns {*} non letters that have been sent of received by the current user.
    */
@@ -103,7 +106,7 @@ Template.Messenger.helpers({
           {receiver: "general"},
           {receiver: ""},
           {receiver: null}]
-      });
+      }, {sort: {created: -1}});
   },
   /**
    *
@@ -116,7 +119,7 @@ Template.Messenger.helpers({
         {receiver: Meteor.user().profile.name},
         {letter: "true"}
       ]
-    });
+    }, {sort: {created: -1}});
   },
   /**
    *
@@ -128,7 +131,7 @@ Template.Messenger.helpers({
         {letter: "true"},
         {receiver: Meteor.user().profile.name}
       ]
-    });
+    }, {sort: {created: -1}});
   },
 
   /**
@@ -141,7 +144,7 @@ Template.Messenger.helpers({
         {letter: "true"},
         {sender: Meteor.user().username}
       ]
-    });
+    }, {sort: {created: -1}});
   },
   /**
    * @returns {*} current user's contact list.
@@ -154,7 +157,6 @@ Template.Messenger.helpers({
    */
   recentList: function () {
     return (_.uniq(_.pluck(Messages.find({$and:[{receiver: Meteor.user().profile.name},{created: {$gt: moment().subtract(1, 'day').format("YYYYMMDDhmmss")}}]}).fetch(), "sender")));
-
 
   }
 });
