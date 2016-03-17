@@ -4,9 +4,7 @@
   <input id="newCon" type="text" value=""/><a href="#!" class="addContact">add contact</a>
   <div class="row">
       {{#each contactList}}
-      <div class="card">
-      name: {{this}}
-      </div>
+      <div class="card">{{this}}<a href="#" class=" right deleteContact">remove</a></div>
       {{/each}}
   </div>
   <div class="row">

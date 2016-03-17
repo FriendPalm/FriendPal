@@ -63,12 +63,12 @@
       <div class="row">
         <ul class="collapsible popout" data-collapsible="accordion">
           <li>
-            <div class="collapsible-header">Compose Message</div>
+            <div class="collapsible-header active">Compose Message</div>
             <div class="collapsible-body">
               <form>
                 <!-- Dropdown Trigger -->
                 <a style="width: 100%;" class='dropdown-button btn' href='#' data-activates='contactDrop'>
-                  To: <input id="to" type="text" value=""/>
+                  To: <input id="to" class="toField" type="text" value=""/>
                 </a>
 
                 <!-- Dropdown Structure -->
@@ -119,9 +119,9 @@
           inDuration: 300,
           outDuration: 225,
           constrain_width: true, // Does not change width of dropdown to that of the activator
-          hover: true, // Activate on hover
+          hover: false, // Activate on hover
           gutter: 0, // Spacing from edge
-          belowOrigin: false, // Displays dropdown below the button
+          belowOrigin: true, // Displays dropdown below the button
           alignment: 'left' // Displays dropdown with edge aligned to the left of button
         }
       );

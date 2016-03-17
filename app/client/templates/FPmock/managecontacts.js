@@ -7,6 +7,10 @@ Template.ManageContacts.events = {
     var conName = tmpl.find("#newCon").value;
     Meteor.call("addContact", conName);
     tmpl.find("#newCon").value="";
+  },
+  'click .deleteContact': function(e, tmpl){
+    var conName = e.target.previousSibling.data;
+    Meteor.call("deleteContact", conName)
   }
 }
 Template.ManageContacts.helpers({
