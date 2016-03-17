@@ -1,7 +1,8 @@
+///////////////commented out for deployment///////////////
 /**
  * A list of Stuff to pre-fill the Collection.
  * @type {*[]}
- */
+ *
 var messSeeds = [
   {subject: "sub1", text: "Basket", sender: "user1", receiver: "user2", letter: "true", created: moment().format("YYYYMMDDhmmss")},
   {subject: "sub2", text: "Bgfhicycle", sender: "user2", receiver: "user1", letter: "false", created: moment().format("YYYYMMDDhmmss")},
@@ -26,12 +27,15 @@ var messSeeds = [
   {subject: "sub", text: "Bicykjhcle", sender: "bar", receiver: "sy", letter: "true", created: moment().format("YYYYMMDDhmmss")},
 
 ];
+*/
+
 
 /**
  * Initialize the Stuff collection if empty with seed data.
- */
+
 if (Messages.find().count() === 0) {
   _.each(messSeeds,  function(messages) {
     Messages.insert(messages);
   });
 }
+*/

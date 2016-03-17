@@ -1,4 +1,4 @@
-![](app\public\images\Home.JPG)
+![](Home.JPG)
 
 ## FriendPal
 FriendPal is a communication application that allows students who do not speak the same language to communicate through letters and short messages by incorporating a translator feature.
