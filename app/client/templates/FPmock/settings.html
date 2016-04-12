@@ -1,15 +1,33 @@
 <template name="Settings">
-<h1>settings</h1>
-<div class="container">
-  <div class="row">
-    <div class="card">
-      hi
+  <h1>Profile and settings</h1>
+  <div class="container">
+    <div class="row">
+      <div class="card">
+        user picture <br>
+        user bio <br>
+        <a>edit</a>
+      </div>
+    </div>
+    <div class="row">
+      <div class="card col s6">
+        interests<br>
+        {{#each interestList}}
+        <div class="chip">
+          {{this}}
+        </div>
+        {{/each}}
+
+        <input type="checkbox" class="toggleInterest" id="Music"/>
+        <label for="Music">Music</label>
+
+      </div>
+      <div class="card col s6">
+        statistics<br>
+        sent:     <br>
+        received: <br>
+        contacts: <br>
+      </div>
+
     </div>
   </div>
-  <div class="row">
-    <div class="card col s6">hi</div>
-    <div class="card col s6">hi</div>
-
-  </div>
-</div>
 </template>
