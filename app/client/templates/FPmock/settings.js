@@ -8,8 +8,6 @@
 Template.Settings.events = {
 
   'click .toggleInterest':function(e, tmpl){
-    console.log(e.currentTarget.id);
-    console.log(e.currentTarget.checked);
     if(e.currentTarget.checked){
       var intName = e.currentTarget.id;
       Meteor.call("addInterest", intName);
