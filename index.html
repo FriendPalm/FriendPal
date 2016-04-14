@@ -1,0 +1,127 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Friendpal by FriendPalm</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-light.css">
+    <meta name="viewport" content="width=device-width">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Friendpal</h1>
+        <p>Pen pal app incorporating a translator. preview at</p>
+
+        <p class="view"><a href="https://github.com/FriendPalm/FriendPal">View the Project on GitHub <small>FriendPalm/FriendPal</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/FriendPalm/FriendPal/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/FriendPalm/FriendPal/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/FriendPalm/FriendPal">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <p><img src="Home.JPG" alt=""></p>
+
+<h2>
+<a id="friendpal" class="anchor" href="#friendpal" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>FriendPal</h2>
+
+<p>FriendPal is a communication application that allows students who do not speak the same language to communicate
+through letters and short messages by incorporating a translator feature. FriendPal uses University of Hawaii CAS system
+for now as a test, but can be easily modified to expand to larger demographics.</p>
+
+<h2>
+<a id="changes" class="anchor" href="#changes" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Changes</h2>
+
+<p>4/14:
+Implemented user interests.
+Combined user settings and profile.
+Added collections for user profiles. (still need forms to add data)
+Contact list now a list of close-able chips.</p>
+
+<h2>
+<a id="features" class="anchor" href="#features" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Features</h2>
+
+<p>functional:
+short messages,
+letters,
+contact list,
+state saving</p>
+
+<p>in-development:
+state saving,
+user profile,
+user settings,</p>
+
+<p>planned:
+matchmaking,
+translator using Google API,
+side-by-side viewing translated/non-translated letters,
+automatically translated messages,
+Rooms for online users,
+emoji</p>
+
+<h2>
+<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installation</h2>
+
+<p>A <a href="http://www.friendpal.meteor.com">live version</a> of FriendPal will be available to view until March 24 2016. For
+installing to try on a local machine, do the following:</p>
+
+<p>Install <a href="https://www.meteor.com/">Meteor</a>,
+Download this repository,
+cd to the app directory in a command prompt or terminal,
+run meteor using the settings file (use the meteor command below)</p>
+
+<pre><code>meteor --settings ../config/settings.development.json
+</code></pre>
+
+<h2>
+<a id="walkthrough" class="anchor" href="#walkthrough" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Walkthrough</h2>
+
+<p>FriendPal is simple to use. You may navigate to the home page at any time by clicking the title on the top left and login
+or access your options from the menu at the top right. Before logging in, you may only use the translator
+of the app (which is not functional, yet).</p>
+
+<p><img src="Messenger.JPG" alt=""></p>
+
+<p>After login you will have access to the messenger, which allows you to send and receive messages.
+From the top of the page: Personal and general short messages collapsible. Compose message collapsible, there is a
+dropdown menu that lists your contacts and a list of people who have recently (within 24 hours) sent you a message.
+New and past letters collapsible, shows letter-length messages, click to view the whole message.</p>
+
+<p><img src="Contacts.JPG" alt=""></p>
+
+<p>Your contact list can be accessed from the top menu, you can add and delete contacts here.</p>
+
+<p><img src="Settings.JPG" alt=""></p>
+
+<p>Settings is where you may edit your user bio and user image that other users will see when they look at your profile. Here, you can also  edit your interests that will later be used for matchmaking, as well as look at some of your statistics on the site.</p>
+
+<h2>
+<a id="credits" class="anchor" href="#credits" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Credits</h2>
+
+<p>FriendPal is built using <a href="https://www.meteor.com/">Meteor</a> and <a href="http://materializecss.com/">Materialize CSS</a>
+development frameworks.
+Dr. Johnson's <a href="https://githu.com/ics-software-engineering/meteor-example-uh-cas">template</a> was used as a base
+for this application and allows access to a test UH CAS login system.
+Packages used in Meteor: accounts-password, aldeed:autoform, aldeed:collection2, atoy40:accounts-cas,
+blaze-html-templates, check, ecmascript, ejson, es5-shim, ian:accounts-ui-bootstrap-3, iron:router, jquery,
+meteor-base, mobile-experience, <a href="http://momentjs.com">momentjs:moment</a>, mongo, random, sacha:spin, session, standard-minifiers, tracker,
+twbs:bootstrap, <a href="http://underscorejs.org/">underscore</a>.</p>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/FriendPalm">FriendPalm</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
