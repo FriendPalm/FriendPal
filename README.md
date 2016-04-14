@@ -5,6 +5,12 @@ FriendPal is a communication application that allows students who do not speak t
 through letters and short messages by incorporating a translator feature. FriendPal uses University of Hawaii CAS system
 for now as a test, but can be easily modified to expand to larger demographics.
 
+##Changes
+4/14:
+Implemented user interests.
+Combined user settings and profile.
+Added collections for user profiles. (still need forms to add data)
+Contact list now a list of close-able chips.
 
 ## Features
 functional:

@@ -2,14 +2,20 @@
   <h1>Profile and settings</h1>
   <div class="container">
     <div class="row">
-      <div class="card">
-        user picture <br>
-        user bio <br>
+      <div class="card col s6">
+        <img style="height:100px;" src="http://icons.iconarchive.com/icons/custom-icon-design/silky-line-user/256/user-2-icon.png"> <br>
+        <p>Sample user bio data</p><br>
         <a>edit</a>
+      </div>
+      <div class="card col s6">
+        statistics<br>
+        sent: 30<br>
+        received: 47<br>
+        contacts: 9<br>
       </div>
     </div>
     <div class="row">
-      <div class="card col s6">
+      <div class="card">
         interests<br>
         {{#each interestList}}
         <div class="chip">
@@ -39,12 +45,7 @@
         <label for="Food">Food</label><br>
 
       </div>
-      <div class="card col s6">
-        statistics<br>
-        sent: <br>
-        received: <br>
-        contacts: <br>
-      </div>
+
 
     </div>
   </div>

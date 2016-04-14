@@ -35,7 +35,7 @@
 
 if (Meteor.isServer) {
   Meteor.publish("userData", function () {
-    return Meteor.users.find({},{fields: {'username': 1, 'contacts': 1, 'interests': 1}});
+    return Meteor.users.find({},{fields: {'username': 1, 'contacts': 1, 'interests': 1, 'userBio': 1, 'userPicture': 1}});
   });
 }
 if(Meteor.isClient){
