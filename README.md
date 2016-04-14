@@ -61,6 +61,10 @@ New and past letters collapsible, shows letter-length messages, click to view th
 
 Your contact list can be accessed from the top menu, you can add and delete contacts here.
 
+![](Settings.JPG)
+
+Settings is where you may edit your user bio and user image that other users will see when they look at your profile. Here, you can also  edit your interests that will later be used for matchmaking, as well as look at some of your statistics on the site.
+
 ## Credits
 FriendPal is built using [Meteor](https://www.meteor.com/) and [Materialize CSS](http://materializecss.com/)
 development frameworks.
