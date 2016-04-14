@@ -1,20 +1,23 @@
 <template name="ManageContacts">
-<h1>contact list</h1>
-<div class="container">
-  <input id="newCon" type="text" value=""/><a href="#!" class="addContact">add contact</a>
-  <div class="row">
+  <h1>contact list</h1>
+  <div class="container">
+    <input id="newCon" type="text" value=""/><a href="#!" class="addContact">add contact</a>
+    <div class="row">
       {{#each contactList}}
-      <div class="card">{{this}}<a href="#" class=" right deleteContact">remove</a></div>
+      <div class="chip">
+        {{this}}
+        <a href="#" class="deleteContact">x</a>
+      </div>
       {{/each}}
-  </div>
-  <div class="row">
-    <div class="card col s6">
+    </div>
+    <div class="row">
+      <div class="card col s6">
+
+      </div>
+      <div class="card col s6">
+
+      </div>
 
     </div>
-    <div class="card col s6">
-
-    </div>
-
   </div>
-</div>
 </template>

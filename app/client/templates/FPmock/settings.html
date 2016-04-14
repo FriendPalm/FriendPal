@@ -1,15 +1,51 @@
 <template name="Settings">
-<h1>settings</h1>
-<div class="container">
-  <div class="row">
-    <div class="card">
-      hi
+  <h1>Profile and settings</h1>
+  <div class="container">
+    <div class="row">
+      <div class="card">
+        user picture <br>
+        user bio <br>
+        <a>edit</a>
+      </div>
+    </div>
+    <div class="row">
+      <div class="card col s6">
+        interests<br>
+        {{#each interestList}}
+        <div class="chip">
+          {{this}}
+        </div>
+        {{/each}}
+        <br>
+        <input type="checkbox" class="toggleInterest" id="Music"/>
+        <label for="Music">Music</label><br>
+        <input type="checkbox" class="toggleInterest" id="Movies"/>
+        <label for="Movies">Movies</label><br>
+        <input type="checkbox" class="toggleInterest" id="Art"/>
+        <label for="Art">Art</label><br>
+        <input type="checkbox" class="toggleInterest" id="Science"/>
+        <label for="Science">Science</label><br>
+        <input type="checkbox" class="toggleInterest" id="History"/>
+        <label for="History">History</label><br>
+        <input type="checkbox" class="toggleInterest" id="Nature"/>
+        <label for="Nature">Nature</label><br>
+        <input type="checkbox" class="toggleInterest" id="Space"/>
+        <label for="Space">Space</label><br>
+        <input type="checkbox" class="toggleInterest" id="Games"/>
+        <label for="Games">Games</label><br>
+        <input type="checkbox" class="toggleInterest" id="Travel"/>
+        <label for="Travel">Travel</label><br>
+        <input type="checkbox" class="toggleInterest" id="Food"/>
+        <label for="Food">Food</label><br>
+
+      </div>
+      <div class="card col s6">
+        statistics<br>
+        sent: <br>
+        received: <br>
+        contacts: <br>
+      </div>
+
     </div>
   </div>
-  <div class="row">
-    <div class="card col s6">hi</div>
-    <div class="card col s6">hi</div>
-
-  </div>
-</div>
 </template>
