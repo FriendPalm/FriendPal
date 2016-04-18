@@ -82,3 +82,6 @@ twbs:bootstrap, [underscore](http://underscorejs.org/).
 
 ####Brian: bjboado@hawaii.edu
 ####Sy:    sy@hawaii.edu
+
+##Evaluation
+If you would like to evaluate our app and help us make friendpal better. take this [short survey](http://goo.gl/forms/PtrtS9EJEa)
