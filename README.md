@@ -26,7 +26,6 @@ planned:
 translator using Google API,
 side-by-side viewing translated/non-translated letters,
 automatically translated messages,
-Rooms for online users,
 emoji
 
 ## Installation
@@ -46,23 +45,28 @@ meteor --settings ../config/settings.development.json
 FriendPal is simple to use. You may navigate to the home page at any time by clicking the title on the top left and login
 or access your options from the menu at the top right. Before logging in, you may only use the translator
 of the app (which is not functional, yet).
-After login you will have access to the messenger, which allows you to send and receive messages.
-From the top of the page:
-###Personal messages collapsible.
-###General messages collapsible.
-###Compose message collapsible. the
-dropdown menu that lists your contacts and a list of people who have recently (within 24 hours) sent you a message.
-###New letters and past letters collapsible, shows letter-length messages, click to view the whole message.
 
+###Messages
 ![](Messenger.JPG)
 
-Your contact list can be accessed from the top menu, you can add and delete contacts here.
+After login you will have access to the messenger, which allows you to send and receive messages.
+From the top of the page:
+####Personal messages collapsible
+messages that you have sent or received by you.
+####General messages collapsible
+messages that people have sent to no one or to 'general'
+####Compose message collapsible.
+clicking on the to: field brings up a lists your contacts and a list of people who have recently (within 24 hours) sent you a message.
+####New and past letters collapsibles
+shows letter-length messages, click to view the whole message.
 
 ![](Contacts.JPG)
 
-Settings is where you may edit your user bio and user image that other users will see when they look at your profile. Here, you can also  edit your interests that will later be used for matchmaking, as well as look at some of your statistics on the site.
+Your contact list and settings can be accessed from the top menu, you can add and delete contacts in the contacts manager, which get added to the dropdown menu when you click the to field when composing a message.
 
 ![](Settings.JPG)
+
+Settings is where you may edit your user bio and user image that other users will see when they look at your profile. Here, you can also edit your interests that will later be used for matchmaking, as well as look at some of your statistics on the site.
 
 ## Credits
 FriendPal is built using [Meteor](https://www.meteor.com/) and [Materialize CSS](http://materializecss.com/)
