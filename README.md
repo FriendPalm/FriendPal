@@ -78,7 +78,7 @@ blaze-html-templates, check, ecmascript, ejson, es5-shim, ian:accounts-ui-bootst
 meteor-base, mobile-experience, [momentjs:moment](http://momentjs.com), mongo, random, sacha:spin, session, standard-minifiers, tracker,
 twbs:bootstrap, [underscore](http://underscorejs.org/).
 
+##Contact Us
 
-
-
-
+####Brian: bjboado@hawaii.edu
+####Sy:    sy@hawaii.edu
