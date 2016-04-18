@@ -84,4 +84,4 @@ twbs:bootstrap, [underscore](http://underscorejs.org/).
 ####Sy:    sy@hawaii.edu
 
 ##Evaluation
-If you would like to evaluate our app and help us make friendpal better. take this [short survey](http://goo.gl/forms/PtrtS9EJEa)
+If you would like to evaluate our app and help us make friendpal better. Please take this [short survey](http://goo.gl/forms/PtrtS9EJEa). You may review our app as a mock-up (screenshots are provided in the survey) or run app localy by following the instalation instructions above and review a working system.
