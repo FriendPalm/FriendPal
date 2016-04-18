@@ -17,15 +17,12 @@ functional:
 short messages,
 letters,
 contact list,
-state saving
 
 in-development:
-state saving,
-user profile,
-user settings,
+matchmaking,
+user settings
 
 planned:
-matchmaking,
 translator using Google API,
 side-by-side viewing translated/non-translated letters,
 automatically translated messages,
@@ -49,21 +46,23 @@ meteor --settings ../config/settings.development.json
 FriendPal is simple to use. You may navigate to the home page at any time by clicking the title on the top left and login
 or access your options from the menu at the top right. Before logging in, you may only use the translator
 of the app (which is not functional, yet).
+After login you will have access to the messenger, which allows you to send and receive messages.
+From the top of the page:
+###Personal messages collapsible.
+###General messages collapsible.
+###Compose message collapsible. the
+dropdown menu that lists your contacts and a list of people who have recently (within 24 hours) sent you a message.
+###New letters and past letters collapsible, shows letter-length messages, click to view the whole message.
 
 ![](Messenger.JPG)
 
-After login you will have access to the messenger, which allows you to send and receive messages.
-From the top of the page: Personal and general short messages collapsible. Compose message collapsible, there is a
-dropdown menu that lists your contacts and a list of people who have recently (within 24 hours) sent you a message.
-New and past letters collapsible, shows letter-length messages, click to view the whole message.
+Your contact list can be accessed from the top menu, you can add and delete contacts here.
 
 ![](Contacts.JPG)
 
-Your contact list can be accessed from the top menu, you can add and delete contacts here.
+Settings is where you may edit your user bio and user image that other users will see when they look at your profile. Here, you can also  edit your interests that will later be used for matchmaking, as well as look at some of your statistics on the site.
 
 ![](Settings.JPG)
-
-Settings is where you may edit your user bio and user image that other users will see when they look at your profile. Here, you can also  edit your interests that will later be used for matchmaking, as well as look at some of your statistics on the site.
 
 ## Credits
 FriendPal is built using [Meteor](https://www.meteor.com/) and [Materialize CSS](http://materializecss.com/)
