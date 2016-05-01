@@ -15,8 +15,14 @@ Template.Settings.events = {
       var intName = e.currentTarget.id;
       Meteor.call("deleteInterest", intName)
     }
-  }
+  },
+  'click .testButt': function(){
+    document.getElementById("match1").innerHTML = Meteor.call("getMatch", "Art");
+    document.getElementById("match2").innerHTML = "hi";
+    document.getElementById("match3").innerHTML = "hi";
+  },
 }
+
 Template.Settings.helpers({
   /**
    * @returns {*} all user accounts.

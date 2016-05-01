@@ -35,55 +35,69 @@
 
 if (Meteor.isServer) {
   Meteor.publish("userData", function () {
-    return Meteor.users.find({},{fields: {'username': 1, 'contacts': 1, 'interests': 1, 'userBio': 1, 'userPicture': 1}});
+    return Meteor.users.find({}, {
+      fields: {
+        'username': 1,
+        'contacts': 1,
+        'interests': 1,
+        'userBio': 1,
+        'userPicture': 1
+      }
+    });
   });
 }
-if(Meteor.isClient){
+if (Meteor.isClient) {
   // client
   Meteor.subscribe("userData");
 }
 Meteor.methods({
   //start User setting manage
   updateProfile: function (newProfile) {
-    Meteor.users.update(Meteor.user()._id, {
+    Meteor.users.update(Meteor.userId, {
       $set: {
         profile: newProfile
       }
     })
   },
   updateContacts: function (updatedContactsArray) {
-    Meteor.users.update(Meteor.user()._id, {
+    Meteor.users.update(Meteor.userId, {
       $set: {
         contacts: updatedContactsArray
       }
     })
   },
   addContact: function (newContact) {
-    Meteor.users.update(Meteor.user()._id, {
+    Meteor.users.update(Meteor.userId, {
       $push: {
         contacts: newContact
       }
     })
   },
   addInterest: function (newInterest) {
-    Meteor.users.update(Meteor.user()._id, {
+    Meteor.users.update(Meteor.userId, {
       $push: {
         interests: newInterest
       }
     })
   },
   deleteContact: function (contactName) {
-    Meteor.users.update(Meteor.user()._id, {
+    Meteor.users.update(Meteor.userId, {
       $pull: {
         contacts: contactName
       }
     })
   },
   deleteInterest: function (interestName) {
-    Meteor.users.update(Meteor.user()._id, {
+    Meteor.users.update(Meteor.userId, {
       $pull: {
         interests: interestName
       }
     })
+  },
+
+  //matchmaking
+  getMatch: function (interest) {
+    console.log(Accounts);
+    return Meteor.users.findOne();
   }
 })
