@@ -41,13 +41,15 @@ if (Meteor.isServer) {
         'contacts': 1,
         'interests': 1,
         'userBio': 1,
-        'userPicture': 1
+        'userPicture': 1,
+        'matches': 1
       }
     });
   });
 }
 if (Meteor.isClient) {
   Meteor.subscribe("userData");
+
 }
 
 Meteor.methods({
@@ -109,3 +111,6 @@ Meteor.methods({
     })
   },
 })
+
+
+

@@ -54,17 +54,14 @@
       </div>
       <div class="col s6">
         <div class="card">
-          <a class="btn testButt">test button</a>
+          <a class="btn newMatches">Get New Matches</a>
+          <a class="btn testButt">Create Test Users</a>
           <div class="row">
-            <div id="match1" class="col">
-
+            {{#each getMatches}}
+            <div class="col">
+              {{name}}{{pic}}{{bio}}
             </div>
-            <div id="match2" class="col">
-
-            </div>
-            <div id="match3" class="col">
-
-            </div>
+         {{/each}}
           </div>
         </div>
       </div>
