@@ -47,9 +47,9 @@ if (Meteor.isServer) {
   });
 }
 if (Meteor.isClient) {
-  // client
   Meteor.subscribe("userData");
 }
+
 Meteor.methods({
   //start User setting manage
   updateProfile: function (newProfile) {
@@ -94,10 +94,18 @@ Meteor.methods({
       }
     })
   },
-
-  //matchmaking
-  getMatch: function (interest) {
-    console.log(Accounts);
-    return Meteor.users.findOne();
-  }
+  setMatches: function(matches){
+    Meteor.users.update(Meteor.userId, {
+      $set: {
+        matches: matches
+      }
+    })
+  },
+  adminInt: function (userID, inte) {
+    Meteor.users.update(userID, {
+      $set: {
+        interests: [inte]
+      }
+    })
+  },
 })

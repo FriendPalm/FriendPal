@@ -2,61 +2,69 @@
   <h1>Profile and settings</h1>
   <div class="container">
     <div class="row">
-      <div class="card col s6">
-        <img style="height:100px;"
-             src="http://icons.iconarchive.com/icons/custom-icon-design/silky-line-user/256/user-2-icon.png"> <br>
-        <p>Sample user bio data</p><br>
-        <a>edit</a>
+      <div class="col s6">
+        <div class="card">
+          <img style="height:100px;"
+               src="http://icons.iconarchive.com/icons/custom-icon-design/silky-line-user/256/user-2-icon.png"> <br>
+          <p>Sample user bio data</p><br>
+          <a>edit</a>
+        </div>
       </div>
-      <div class="card col s6">
-        statistics<br>
-        sent: 30<br>
-        received: 47<br>
-        contacts: 9<br>
+      <div class="col s6">
+        <div class="card">
+          statistics<br>
+          sent: 30<br>
+          received: 47<br>
+          contacts: 9<br>
+        </div>
       </div>
     </div>
     <div class="row">
-      <div class="card col s6">
-        interests<br>
-        {{#each interestList}}
-        <div class="chip">
-          {{this}}
+      <div class="col s6">
+        <div class="card">
+          interests<br>
+          {{#each interestList}}
+          <div class="chip">
+            {{this}}
+          </div>
+          {{/each}}
+          <br>
+          <input type="checkbox" class="toggleInterest" id="Music"/>
+          <label for="Music">Music</label><br>
+          <input type="checkbox" class="toggleInterest" id="Movies"/>
+          <label for="Movies">Movies</label><br>
+          <input type="checkbox" class="toggleInterest" id="Art"/>
+          <label for="Art">Art</label><br>
+          <input type="checkbox" class="toggleInterest" id="Science"/>
+          <label for="Science">Science</label><br>
+          <input type="checkbox" class="toggleInterest" id="History"/>
+          <label for="History">History</label><br>
+          <input type="checkbox" class="toggleInterest" id="Nature"/>
+          <label for="Nature">Nature</label><br>
+          <input type="checkbox" class="toggleInterest" id="Space"/>
+          <label for="Space">Space</label><br>
+          <input type="checkbox" class="toggleInterest" id="Games"/>
+          <label for="Games">Games</label><br>
+          <input type="checkbox" class="toggleInterest" id="Travel"/>
+          <label for="Travel">Travel</label><br>
+          <input type="checkbox" class="toggleInterest" id="Food"/>
+          <label for="Food">Food</label><br>
+
         </div>
-        {{/each}}
-        <br>
-        <input type="checkbox" class="toggleInterest" id="Music"/>
-        <label for="Music">Music</label><br>
-        <input type="checkbox" class="toggleInterest" id="Movies"/>
-        <label for="Movies">Movies</label><br>
-        <input type="checkbox" class="toggleInterest" id="Art"/>
-        <label for="Art">Art</label><br>
-        <input type="checkbox" class="toggleInterest" id="Science"/>
-        <label for="Science">Science</label><br>
-        <input type="checkbox" class="toggleInterest" id="History"/>
-        <label for="History">History</label><br>
-        <input type="checkbox" class="toggleInterest" id="Nature"/>
-        <label for="Nature">Nature</label><br>
-        <input type="checkbox" class="toggleInterest" id="Space"/>
-        <label for="Space">Space</label><br>
-        <input type="checkbox" class="toggleInterest" id="Games"/>
-        <label for="Games">Games</label><br>
-        <input type="checkbox" class="toggleInterest" id="Travel"/>
-        <label for="Travel">Travel</label><br>
-        <input type="checkbox" class="toggleInterest" id="Food"/>
-        <label for="Food">Food</label><br>
-
       </div>
-      <div class="card col s6">
-        <a class="btn testButt">test button</a>
-        <div class="row">
-          <div id="match1" class="col">
+      <div class="col s6">
+        <div class="card">
+          <a class="btn testButt">test button</a>
+          <div class="row">
+            <div id="match1" class="col">
 
-          </div>
-          <div id="match2" class="col">
+            </div>
+            <div id="match2" class="col">
 
-          </div>
-          <div id="match3" class="col">
+            </div>
+            <div id="match3" class="col">
 
+            </div>
           </div>
         </div>
       </div>
