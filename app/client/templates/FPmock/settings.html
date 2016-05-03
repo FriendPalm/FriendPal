@@ -12,16 +12,6 @@
       </div>
       <div class="col s6">
         <div class="card-panel">
-          statistics<br>
-          sent: 30<br>
-          received: 47<br>
-          contacts: 9<br>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col s6">
-        <div class="card-panel">
           interests<br>
           {{#each interestList}}
           <div class="chip">
@@ -29,31 +19,51 @@
           </div>
           {{/each}}
           <br>
-          <input type="checkbox" class="toggleInterest" id="Music"/>
-          <label for="Music">Music</label><br>
-          <input type="checkbox" class="toggleInterest" id="Movies"/>
-          <label for="Movies">Movies</label><br>
-          <input type="checkbox" class="toggleInterest" id="Art"/>
-          <label for="Art">Art</label><br>
-          <input type="checkbox" class="toggleInterest" id="Science"/>
-          <label for="Science">Science</label><br>
-          <input type="checkbox" class="toggleInterest" id="History"/>
-          <label for="History">History</label><br>
-          <input type="checkbox" class="toggleInterest" id="Nature"/>
-          <label for="Nature">Nature</label><br>
-          <input type="checkbox" class="toggleInterest" id="Space"/>
-          <label for="Space">Space</label><br>
-          <input type="checkbox" class="toggleInterest" id="Games"/>
-          <label for="Games">Games</label><br>
-          <input type="checkbox" class="toggleInterest" id="Travel"/>
-          <label for="Travel">Travel</label><br>
-          <input type="checkbox" class="toggleInterest" id="Food"/>
-          <label for="Food">Food</label><br>
+          <div class="row">
+            <div class="col s6">
+              <input type="checkbox" class="toggleInterest" id="Music"/>
+              <label for="Music">Music</label><br>
+              <input type="checkbox" class="toggleInterest" id="Movies"/>
+              <label for="Movies">Movies</label><br>
+              <input type="checkbox" class="toggleInterest" id="Art"/>
+              <label for="Art">Art</label><br>
+              <input type="checkbox" class="toggleInterest" id="Science"/>
+              <label for="Science">Science</label><br>
+              <input type="checkbox" class="toggleInterest" id="History"/>
+              <label for="History">History</label><br>
+            </div>
+            <div class="col s6">
+              <input type="checkbox" class="toggleInterest" id="Nature"/>
+              <label for="Nature">Nature</label><br>
+              <input type="checkbox" class="toggleInterest" id="Space"/>
+              <label for="Space">Space</label><br>
+              <input type="checkbox" class="toggleInterest" id="Games"/>
+              <label for="Games">Games</label><br>
+              <input type="checkbox" class="toggleInterest" id="Travel"/>
+              <label for="Travel">Travel</label><br>
+              <input type="checkbox" class="toggleInterest" id="Food"/>
+              <label for="Food">Food</label><br></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col s3">
+        <div class="card-panel">
+          statistics<br>
+          sent: 30<br>
+          received: 47<br>
+          contacts: 9<br>
 
         </div>
       </div>
+      <div class="col s3">
+        <div class="card-panel">{{> ManageContacts}}</div>
+      </div>
+
       <div class="col s6">
         <div class="card-panel">
+          matched users<br>
           {{#each getMatches}}
           <div class="col s4">
             <div class="card userPic">
@@ -62,10 +72,10 @@
             </div>
           </div>
           {{/each}}
-          <a class="btn newMatches">Get New Matches</a>
+          <div class="btn newMatches">Get New Matches</div>
         </div>
       </div>
-
     </div>
   </div>
+
 </template>

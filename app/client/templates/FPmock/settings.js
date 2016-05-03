@@ -170,3 +170,9 @@ Template.Settings.helpers({
     return Meteor.user().profile.userPicture
   }
 });
+
+Template.Settings.onRendered(function() {
+  _.forEach(Meteor.user().interests, function(interest){
+    document.getElementById(interest).setAttribute("checked", true);
+  });
+});

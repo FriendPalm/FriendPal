@@ -8,6 +8,7 @@ Template.CasLogin.events({
   'click .cas-logout': function(e) {
     e.preventDefault();
     Meteor.logout();
+    Router.go('/');
     return false;
   },
 
