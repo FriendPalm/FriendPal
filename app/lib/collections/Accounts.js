@@ -35,13 +35,22 @@
 
 if (Meteor.isServer) {
   Meteor.publish("userData", function () {
-    return Meteor.users.find({},{fields: {'username': 1, 'contacts': 1, 'interests': 1, 'userBio': 1, 'userPicture': 1}});
+    return Meteor.users.find({}, {
+      fields: {
+        'username': 1,
+        'contacts': 1,
+        'interests': 1,
+        'profile': 1,
+        'matches': 1
+      }
+    });
   });
 }
-if(Meteor.isClient){
-  // client
+if (Meteor.isClient) {
   Meteor.subscribe("userData");
+
 }
+
 Meteor.methods({
   //start User setting manage
   updateProfile: function (newProfile) {
@@ -85,5 +94,22 @@ Meteor.methods({
         interests: interestName
       }
     })
-  }
+  },
+  setMatches: function(matches){
+    Meteor.users.update(Meteor.user()._id, {
+      $set: {
+        matches: matches
+      }
+    })
+  },
+  adminInt: function (userID, inte) {
+    Meteor.users.update(userID, {
+      $set: {
+        interests: [inte]
+      }
+    })
+  },
 })
+
+
+
