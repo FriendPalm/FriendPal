@@ -40,8 +40,7 @@ if (Meteor.isServer) {
         'username': 1,
         'contacts': 1,
         'interests': 1,
-        'userBio': 1,
-        'userPicture': 1,
+        'profile': 1,
         'matches': 1
       }
     });
@@ -55,49 +54,49 @@ if (Meteor.isClient) {
 Meteor.methods({
   //start User setting manage
   updateProfile: function (newProfile) {
-    Meteor.users.update(Meteor.userId, {
+    Meteor.users.update(Meteor.user()._id, {
       $set: {
         profile: newProfile
       }
     })
   },
   updateContacts: function (updatedContactsArray) {
-    Meteor.users.update(Meteor.userId, {
+    Meteor.users.update(Meteor.user()._id, {
       $set: {
         contacts: updatedContactsArray
       }
     })
   },
   addContact: function (newContact) {
-    Meteor.users.update(Meteor.userId, {
+    Meteor.users.update(Meteor.user()._id, {
       $push: {
         contacts: newContact
       }
     })
   },
   addInterest: function (newInterest) {
-    Meteor.users.update(Meteor.userId, {
+    Meteor.users.update(Meteor.user()._id, {
       $push: {
         interests: newInterest
       }
     })
   },
   deleteContact: function (contactName) {
-    Meteor.users.update(Meteor.userId, {
+    Meteor.users.update(Meteor.user()._id, {
       $pull: {
         contacts: contactName
       }
     })
   },
   deleteInterest: function (interestName) {
-    Meteor.users.update(Meteor.userId, {
+    Meteor.users.update(Meteor.user()._id, {
       $pull: {
         interests: interestName
       }
     })
   },
   setMatches: function(matches){
-    Meteor.users.update(Meteor.userId, {
+    Meteor.users.update(Meteor.user()._id, {
       $set: {
         matches: matches
       }

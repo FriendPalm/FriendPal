@@ -53,17 +53,17 @@
         </div>
       </div>
       <div class="col s6">
-        <div class="card">
-          <a class="btn newMatches">Get New Matches</a>
-          <a class="btn testButt">Create Test Users</a>
-          <div class="row">
-            {{#each getMatches}}
-            <div class="col">
-              {{name}}{{pic}}{{bio}}
+        <div class="row">
+          {{#each getMatches}}
+          <div class="col s4">
+            <div class="card userPic">
+              <img class="userPic" src="{{pic}}">
+              <a href="#!">{{name}}</a>
             </div>
-         {{/each}}
           </div>
+          {{/each}}
         </div>
+        <a class="btn newMatches">Get New Matches</a>
       </div>
 
     </div>

@@ -150,11 +150,13 @@ Template.Messenger.helpers({
     return Meteor.users.find({_id: Meteor.user()._id}).fetch()[0].contacts;
   },
   /**
-   * @returns {*} current user's contact list.
+   * @returns {*} current user's list of people who have sent him/her a message.
    */
   recentList: function () {
     return (_.uniq(_.pluck(Messages.find({$and:[{receiver: Meteor.user().profile.name},{created: {$gt: moment().subtract(1, 'day').format("YYYYMMDDhmmss")}}]}).fetch(), "sender")));
+  },
 
+  matchConList: function() {
 
-  }
+  },
 });
