@@ -34,7 +34,7 @@ Template.Settings.events = {
       _.forEach(Meteor.user().interests, function (item) {
         if (user._id !== Meteor.userId() && _.contains(user.interests, item)) {
           matchedUser = {
-            name: user.username,
+            name: user.profile.name,
             for: item,
             pic: user.profile.userPicture,
             bio: user.profile.userBio

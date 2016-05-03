@@ -155,8 +155,10 @@ Template.Messenger.helpers({
   recentList: function () {
     return (_.uniq(_.pluck(Messages.find({$and:[{receiver: Meteor.user().profile.name},{created: {$gt: moment().subtract(1, 'day').format("YYYYMMDDhmmss")}}]}).fetch(), "sender")));
   },
-
+  /**
+   * @returns current users's list of names of matches penpals
+   */
   matchConList: function() {
-
+    return (_.uniq(_.pluck(Meteor.user().matches, "name")));
   },
 });
