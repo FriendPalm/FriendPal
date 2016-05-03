@@ -109,6 +109,13 @@ Meteor.methods({
       }
     })
   },
+  editProfile: function (newProfile) {
+    Meteor.users.update(Meteor.user()._id, {
+      $set: {
+        profile: newProfile
+      }
+    })
+  },
 })
 
 

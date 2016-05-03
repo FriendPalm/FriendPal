@@ -36,6 +36,9 @@ Router.route('/profile', {
 Router.route('/contacts', {
   name: 'ManageContacts'
 });
+Router.route('/editprofile', {
+  name: 'EditProfile'
+});
 
 
 Router.route('/messages/:_id', {

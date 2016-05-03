@@ -163,4 +163,10 @@ Template.Settings.helpers({
     let mu = Meteor.user().matches;
     if (mu) return mu;
   },
+  getBio: function() {
+    return Meteor.user().profile.userBio;
+  },
+  getPic: function(){
+    return Meteor.user().profile.userPicture
+  }
 });
