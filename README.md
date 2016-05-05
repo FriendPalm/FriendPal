@@ -3,7 +3,7 @@
 ## FriendPal
 FriendPal is a communication application that allows students who do not speak the same language to communicate
 through letters and short messages by incorporating a translator feature. FriendPal uses University of Hawaii CAS system
-for now as a test, but can be easily modified to expand to larger demographics.
+for now as a test, but can be easily modified to expand to larger demographics. Friend Pal uses a matchmaking system based on your interests that helps you find new people that you might want to exchange letters with.
 
 ##Changes
 4/14:
@@ -12,15 +12,20 @@ Combined user settings and profile.
 Added collections for user profiles. (still need forms to add data)
 Contact list now a list of close-able chips.
 
+5/6:
+Implemeted matchmaking.
+Implemeted matches prefilled to dropdown for 'To' field when composing new messages.
+Consolidated contacts into settings page.
+
 ## Features
 functional:
 short messages,
 letters,
 contact list,
-
-in-development:
 matchmaking,
 user settings
+
+in-development:
 
 planned:
 translator using Google API,
@@ -62,11 +67,9 @@ shows letter-length messages, click to view the whole message.
 
 ![](Contacts.JPG)
 
-Your contact list and settings can be accessed from the top menu, you can add and delete contacts in the contacts manager, which get added to the dropdown menu when you click the to field when composing a message.
-
 ![](Settings.JPG)
 
-Settings is where you may edit your user bio and user image that other users will see when they look at your profile. Here, you can also edit your interests that will later be used for matchmaking, as well as look at some of your statistics on the site.
+Your contact list and settings can be accessed from the settings button at the top menu, you can add and delete contacts which get added to the dropdown menu when you click the to field when composing a message. This is also where you may edit your user bio and user image that other users will see when they look at your profile. Here, you can also edit your interests that are used for matchmaking. Friend Pal will match you with three people that it thinks you might enjoy exchanging letters with.
 
 ## Credits
 FriendPal is built using [Meteor](https://www.meteor.com/) and [Materialize CSS](http://materializecss.com/)
