@@ -69,6 +69,9 @@ Template.Messenger.events = {
   'click .toDropdown': function (e, tmpl) {
     tmpl.find("#to").value = e.currentTarget.id;
     tmpl.find("#contactDrop").display = 'none';
+  },
+  'click .toDropdown': function(e, tmpl){
+    tmpl.find("#toDisp").innerHTML = e.currentTarget.id;
   }
 };
 
