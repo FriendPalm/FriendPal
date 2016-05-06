@@ -65,8 +65,6 @@ clicking on the to: field brings up a lists your contacts and a list of people w
 ####New and past letters collapsibles
 shows letter-length messages, click to view the whole message.
 
-![](Contacts.JPG)
-
 ![](Settings.JPG)
 
 Your contact list and settings can be accessed from the settings button at the top menu, you can add and delete contacts which get added to the dropdown menu when you click the to field when composing a message. This is also where you may edit your user bio and user image that other users will see when they look at your profile. Here, you can also edit your interests that are used for matchmaking. Friend Pal will match you with three people that it thinks you might enjoy exchanging letters with.
