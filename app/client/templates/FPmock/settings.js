@@ -163,12 +163,22 @@ Template.Settings.helpers({
     let mu = Meteor.user().matches;
     if (mu) return mu;
   },
-  getBio: function() {
+  getBio: function () {
     return Meteor.user().profile.userBio;
   },
-  getPic: function(){
+  getPic: function () {
     return Meteor.user().profile.userPicture
-  }
+  },
+  getSentCount: function () {
+    return Messages.find({sender: Meteor.user().profile.name}).count()
+
+  },
+  getRecCount: function () {
+    return Messages.find({receiver: Meteor.user().profile.name}).count()
+  },
+  getConCount: function () {
+    return Meteor.user().contacts.length;
+  },
 });
 
 Template.Settings.onRendered(function() {
